@@ -1,5 +1,5 @@
 ﻿using System;
-using Architecture.CQRS.Abstractions;
+using Architecture.Utils;
 
 namespace Architecture.Internal
 {

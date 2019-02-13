@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Architecture.CQRS.Abstractions\Architecture.CQRS.Abstractions.csproj" />
+    <ProjectReference Include="..\Architecture.Infrastructure\Architecture.Utils.csproj" />
   </ItemGroup>
 
 </Project>

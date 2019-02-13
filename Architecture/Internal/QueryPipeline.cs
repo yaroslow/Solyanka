@@ -6,6 +6,7 @@ using Architecture.CQRS.Abstractions.Handlers;
 using Architecture.CQRS.Abstractions.Pipelines;
 using Architecture.CQRS.Abstractions.PipelineUnits;
 using Architecture.CQRS.Abstractions.Requests;
+using Architecture.Utils;
 
 namespace Architecture.Internal
 {

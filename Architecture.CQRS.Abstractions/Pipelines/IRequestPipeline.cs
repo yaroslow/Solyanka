@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Architecture.CQRS.Abstractions.Requests;
+using Architecture.Utils;
 
 namespace Architecture.CQRS.Abstractions.Pipelines
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Architecture.CQRS.Abstractions
+namespace Architecture.Utils
 {
     public delegate object ServiceFactory(Type serviceType);
 

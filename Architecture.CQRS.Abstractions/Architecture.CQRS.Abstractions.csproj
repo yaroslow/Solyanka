@@ -5,4 +5,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Architecture.Infrastructure\Architecture.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

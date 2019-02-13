@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Architecture.CQRS.Abstractions;
 using Architecture.CQRS.Abstractions.Pipelines;
 using Architecture.CQRS.Abstractions.Requests;
+using Architecture.DE.Abstractions;
+using Architecture.Internal;
+using Architecture.Utils;
 
 namespace Architecture
 {
-    public class Dispatcher : IRequestDispatcher
+    public class Dispatcher : IRequestDispatcher, INotificationDispatcher
     {
         private readonly ServiceFactory _serviceFactory;
         private static readonly ConcurrentDictionary<Type, object> Handlers = new ConcurrentDictionary<Type, object>();
+        private static readonly ConcurrentDictionary<Type, INotificator> Notificators = new ConcurrentDictionary<Type, INotificator>();
 
         public Dispatcher(ServiceFactory serviceFactory)
         {
@@ -47,6 +52,24 @@ namespace Architecture
             }
 
             return handler.ProcessPipeline(request, cancellationToken, _serviceFactory);
+        }
+
+        public Task Notify<TNotification>(TNotification notification, CancellationToken cancellationToken = default) where TNotification : INotification
+        {
+            if (notification == null)
+            {
+                throw new ArgumentNullException(nameof(notification));
+            }
+
+            var notificationType = notification.GetType();
+
+            var notificator = Notificators.GetOrAdd(notificationType,
+                t => (INotificator) Activator.CreateInstance(typeof(Notificator<>).MakeGenericType(notificationType)));
+
+            return notificator.Notify(notification, cancellationToken, _serviceFactory, notifiers =>
+                {
+                    return Task.WhenAll(notifiers.Select(a => a.Invoke()));
+                });
         }
 
         private static IRequestPipeline<TOut> ConstructPipeline<TOut>(Type requestType, Type handlerType)
