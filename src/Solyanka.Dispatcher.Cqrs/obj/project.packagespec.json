@@ -1,0 +1,52 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "D:\\Projects\\Solyanka\\src\\Solyanka.Dispatcher.Cqrs\\Solyanka.Dispatcher.Cqrs.csproj",
+    "projectName": "Solyanka.Dispatcher.Cqrs",
+    "projectPath": "D:\\Projects\\Solyanka\\src\\Solyanka.Dispatcher.Cqrs\\Solyanka.Dispatcher.Cqrs.csproj",
+    "outputPath": "D:\\Projects\\Solyanka\\src\\Solyanka.Dispatcher.Cqrs\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netstandard2.0"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netstandard2.0": {
+        "projectReferences": {
+          "D:\\Projects\\Solyanka\\src\\Solyanka.Utils\\Solyanka.Utils.csproj": {
+            "projectPath": "D:\\Projects\\Solyanka\\src\\Solyanka.Utils\\Solyanka.Utils.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "allWarningsAsErrors": true,
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netstandard2.0": {
+      "dependencies": {
+        "NETStandard.Library": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.0.3, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispatcher", "Dispatcher", "{FC639D71-E061-456B-94F5-200FC3525E8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Dispatcher.Cqrs", "Solyanka.Dispatcher.Cqrs\Solyanka.Dispatcher.Cqrs.csproj", "{C8A7CDD6-D998-414A-A7E4-A02F82789F12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Dispatcher.Events", "Solyanka.Dispatcher.Events\Solyanka.Dispatcher.Events.csproj", "{04233269-92BF-4A59-9D87-32644F80ADA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Utils", "Solyanka.Utils\Solyanka.Utils.csproj", "{EB4E3862-7354-41A2-B71F-13301973B14E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Dispatcher", "Solyanka.Dispatcher\Solyanka.Dispatcher.csproj", "{CA6D7AC5-542B-420E-8FF8-031A5A33EF7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Dispatcher.Microsoft.DependencyInjection", "Solyanka.Dispatcher.Microsoft.DependencyInjection\Solyanka.Dispatcher.Microsoft.DependencyInjection.csproj", "{27B3D876-29F1-4494-A4E1-67577CB0836C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validator", "Validator", "{B6B12FB0-4D32-4E82-A0B4-25983FE4F7A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keeper", "Keeper", "{E25DD290-803C-41AF-96E6-F2C397B3C625}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Keeper.Entity", "Solyanka.Keeper.Entity\Solyanka.Keeper.Entity.csproj", "{B1C8B916-A1A3-46F1-8B54-414F387DCE01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8A7CDD6-D998-414A-A7E4-A02F82789F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A7CDD6-D998-414A-A7E4-A02F82789F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A7CDD6-D998-414A-A7E4-A02F82789F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A7CDD6-D998-414A-A7E4-A02F82789F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04233269-92BF-4A59-9D87-32644F80ADA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04233269-92BF-4A59-9D87-32644F80ADA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04233269-92BF-4A59-9D87-32644F80ADA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04233269-92BF-4A59-9D87-32644F80ADA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB4E3862-7354-41A2-B71F-13301973B14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB4E3862-7354-41A2-B71F-13301973B14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB4E3862-7354-41A2-B71F-13301973B14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB4E3862-7354-41A2-B71F-13301973B14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6D7AC5-542B-420E-8FF8-031A5A33EF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6D7AC5-542B-420E-8FF8-031A5A33EF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6D7AC5-542B-420E-8FF8-031A5A33EF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6D7AC5-542B-420E-8FF8-031A5A33EF7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27B3D876-29F1-4494-A4E1-67577CB0836C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B3D876-29F1-4494-A4E1-67577CB0836C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B3D876-29F1-4494-A4E1-67577CB0836C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B3D876-29F1-4494-A4E1-67577CB0836C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1C8B916-A1A3-46F1-8B54-414F387DCE01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C8B916-A1A3-46F1-8B54-414F387DCE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C8B916-A1A3-46F1-8B54-414F387DCE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C8B916-A1A3-46F1-8B54-414F387DCE01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8A7CDD6-D998-414A-A7E4-A02F82789F12} = {FC639D71-E061-456B-94F5-200FC3525E8C}
+		{04233269-92BF-4A59-9D87-32644F80ADA3} = {FC639D71-E061-456B-94F5-200FC3525E8C}
+		{CA6D7AC5-542B-420E-8FF8-031A5A33EF7A} = {FC639D71-E061-456B-94F5-200FC3525E8C}
+		{27B3D876-29F1-4494-A4E1-67577CB0836C} = {FC639D71-E061-456B-94F5-200FC3525E8C}
+		{B1C8B916-A1A3-46F1-8B54-414F387DCE01} = {E25DD290-803C-41AF-96E6-F2C397B3C625}
+	EndGlobalSection
+EndGlobal
