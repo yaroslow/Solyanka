@@ -18,6 +18,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keeper", "Keeper", "{E25DD2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Keeper.Entity", "Solyanka.Keeper.Entity\Solyanka.Keeper.Entity.csproj", "{B1C8B916-A1A3-46F1-8B54-414F387DCE01}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connector", "Connector", "{AF05ABF8-F0FA-45E1-BEFD-EB8EEA7323B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Connector.Bus", "Solyanka.Connector.Bus\Solyanka.Connector.Bus.csproj", "{5F70856C-680C-4580-B459-96D024409711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Connector.Bus.Microsoft.DependencyInjection", "Solyanka.Connector.Bus.Microsoft.DependencyInjection\Solyanka.Connector.Bus.Microsoft.DependencyInjection.csproj", "{F2C8654F-076F-4F4B-BD6C-2AB9503D38E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Connector.Bus.Microsoft.DependencyInjection.RabbitMQ", "Solyanka.Connector.Bus.Microsoft.DependencyInjection.RabbitMQ\Solyanka.Connector.Bus.Microsoft.DependencyInjection.RabbitMQ.csproj", "{488EC6FC-124D-4850-B33F-E5EF03CD2422}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +56,18 @@ Global
 		{B1C8B916-A1A3-46F1-8B54-414F387DCE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1C8B916-A1A3-46F1-8B54-414F387DCE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1C8B916-A1A3-46F1-8B54-414F387DCE01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F70856C-680C-4580-B459-96D024409711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F70856C-680C-4580-B459-96D024409711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F70856C-680C-4580-B459-96D024409711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F70856C-680C-4580-B459-96D024409711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C8654F-076F-4F4B-BD6C-2AB9503D38E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C8654F-076F-4F4B-BD6C-2AB9503D38E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C8654F-076F-4F4B-BD6C-2AB9503D38E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C8654F-076F-4F4B-BD6C-2AB9503D38E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{488EC6FC-124D-4850-B33F-E5EF03CD2422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{488EC6FC-124D-4850-B33F-E5EF03CD2422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{488EC6FC-124D-4850-B33F-E5EF03CD2422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{488EC6FC-124D-4850-B33F-E5EF03CD2422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C8A7CDD6-D998-414A-A7E4-A02F82789F12} = {FC639D71-E061-456B-94F5-200FC3525E8C}
@@ -55,5 +75,8 @@ Global
 		{CA6D7AC5-542B-420E-8FF8-031A5A33EF7A} = {FC639D71-E061-456B-94F5-200FC3525E8C}
 		{27B3D876-29F1-4494-A4E1-67577CB0836C} = {FC639D71-E061-456B-94F5-200FC3525E8C}
 		{B1C8B916-A1A3-46F1-8B54-414F387DCE01} = {E25DD290-803C-41AF-96E6-F2C397B3C625}
+		{5F70856C-680C-4580-B459-96D024409711} = {AF05ABF8-F0FA-45E1-BEFD-EB8EEA7323B5}
+		{F2C8654F-076F-4F4B-BD6C-2AB9503D38E9} = {AF05ABF8-F0FA-45E1-BEFD-EB8EEA7323B5}
+		{488EC6FC-124D-4850-B33F-E5EF03CD2422} = {AF05ABF8-F0FA-45E1-BEFD-EB8EEA7323B5}
 	EndGlobalSection
 EndGlobal

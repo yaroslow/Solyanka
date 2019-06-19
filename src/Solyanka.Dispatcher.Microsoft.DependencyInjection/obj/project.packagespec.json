@@ -41,6 +41,10 @@
   "frameworks": {
     "netstandard2.0": {
       "dependencies": {
+        "MassTransit.Extensions.DependencyInjection": {
+          "target": "Package",
+          "version": "[5.5.1, )"
+        },
         "NETStandard.Library": {
           "suppressParent": "All",
           "target": "Package",
