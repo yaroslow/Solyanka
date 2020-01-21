@@ -16,11 +16,11 @@ namespace Solyanka.Events.Abstractions
         /// Add event to <c>Events</c>
         /// </summary>
         /// <param name="event"><see cref="IEvent"/></param>
-        void AddEvent(IEvent @event) => Events.Add(@event);
+        void AddEvent(IEvent @event);
 
         /// <summary>
         /// Clear <c>Events</c>
         /// </summary>
-        void ClearEvents() => Events.Clear();
+        void ClearEvents();
     }
 }

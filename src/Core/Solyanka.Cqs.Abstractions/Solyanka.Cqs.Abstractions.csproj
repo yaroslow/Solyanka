@@ -1,10 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Version>1.0.0</Version>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Description>Abstractions for handling commands and queries</Description>
+        <Copyright>Copyright yaroslow</Copyright>
+        <AssemblyName>Solyanka.Cqs.Abstractions</AssemblyName>
+        <PackageId>Solyanka.Cqs.Abstractions</PackageId>
+        <PackageTags>dispatcher;mediator;queries;commands;handlers;pipelines;solyanka;framework</PackageTags>
+        <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
 
     <ItemGroup>

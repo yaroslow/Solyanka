@@ -14,5 +14,17 @@ namespace Solyanka.Events.DomainEvents
         /// Event list that need to be handled
         /// </summary>
         public virtual IList<IEvent> Events { get; set; }
+
+        /// <inheritdoc />
+        public void AddEvent(IEvent @event)
+        {
+            Events.Add(@event);
+        }
+
+        /// <inheritdoc />
+        public void ClearEvents()
+        {
+            Events.Clear();
+        }
     }
 }

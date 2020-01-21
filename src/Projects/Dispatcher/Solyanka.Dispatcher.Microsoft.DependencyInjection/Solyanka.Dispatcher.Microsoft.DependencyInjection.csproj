@@ -1,12 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Version>1.0.0</Version>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <Description>Extension to inject Solyanka.Dispatcher to Microsoft.DependencyInjection</Description>
+        <Copyright>Copyright yaroslow</Copyright>
+        <AssemblyName>Solyanka.Dispatcher.Microsoft.DependencyInjection</AssemblyName>
+        <PackageId>Solyanka.Dispatcher.Microsoft.DependencyInjection</PackageId>
+        <PackageTags>dispatcher;mediator;microsoft-di;solyanka;framework</PackageTags>
+        <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
+    </PropertyGroup>
+    
     <ItemGroup>
       <ProjectReference Include="..\Solyanka.Dispatcher\Solyanka.Dispatcher.csproj" />
     </ItemGroup>

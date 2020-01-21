@@ -1,10 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Version>1.0.0</Version>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <Description>Abstractions to build integration service bus to transfer integration events or other objects</Description>
+        <Copyright>Copyright yaroslow</Copyright>
+        <AssemblyName>Solyanka.ServiceBus.Abstractions</AssemblyName>
+        <PackageId>Solyanka.ServiceBus.Abstractions</PackageId>
+        <PackageTags>integration-events;service-bus;solyanka;framework</PackageTags>
+        <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
+    </PropertyGroup>
+    
 </Project>

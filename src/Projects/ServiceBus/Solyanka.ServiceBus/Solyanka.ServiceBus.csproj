@@ -1,12 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Version>1.0.0</Version>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <Description>Service bus transfering integration events or other objects</Description>
+        <Copyright>Copyright yaroslow</Copyright>
+        <AssemblyName>Solyanka.ServiceBus</AssemblyName>
+        <PackageId>Solyanka.ServiceBus</PackageId>
+        <PackageTags>integration-events;service-bus;solyanka;framework</PackageTags>
+        <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
+    </PropertyGroup>
+    
     <ItemGroup>
       <PackageReference Include="MassTransit" Version="6.0.1" />
     </ItemGroup>
