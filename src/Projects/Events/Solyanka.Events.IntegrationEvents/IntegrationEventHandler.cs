@@ -1,29 +1,27 @@
-using System.Threading;
-using System.Threading.Tasks;
 using Solyanka.Events.Abstractions;
 using Solyanka.ServiceBus.Abstractions;
 
 namespace Solyanka.Events.IntegrationEvents
 {
     /// <summary>
-    /// <see cref="IEventHandler{TEvent}"/> that publishes integration events to service bus
+    /// <see cref="IEventHandler{TEvent}"/> that queue integration events for publishing
     /// </summary>
-    public class IntegrationEventHandler : IEventHandler<IIntegrationEvent>
+    public class IntegrationEventHandler : SyncEventHandler<IIntegrationEvent>
     {
-        private readonly IIntegrationEventsPublisher _eventsPublisher;
+        private readonly IServiceBus _serviceBus;
 
 
         /// <summary/>
-        public IntegrationEventHandler(IIntegrationEventsPublisher eventsPublisher)
+        public IntegrationEventHandler(IServiceBus serviceBus)
         {
-            _eventsPublisher = eventsPublisher;
+            _serviceBus = serviceBus;
         }
 
 
         /// <inheritdoc />
-        public async Task Handle(IIntegrationEvent @event, CancellationToken cancellationToken)
+        protected override void Handle(IEvent @event)
         {
-            await _eventsPublisher.PublishInBus(@event);
+            _serviceBus.AddEvent(@event);
         }
     }
 }

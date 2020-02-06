@@ -1,8 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Solyanka.Events.Abstractions;
 
-namespace Solyanka.Dispatcher.Events.Abstractions
+namespace Solyanka.Events.Abstractions
 {
     /// <summary>
     /// Dispacther handling events

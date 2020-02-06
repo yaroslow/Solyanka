@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Solyanka.Cqs.Abstractions;
 using Solyanka.Cqs.Abstractions.Pipelines;
 using Solyanka.Cqs.Abstractions.Requests;
-using Solyanka.Dispatcher.Events.Abstractions;
 using Solyanka.Dispatcher.Internal.Cqs;
 using Solyanka.Dispatcher.Internal.Events;
 using Solyanka.Events.Abstractions;
@@ -23,6 +22,7 @@ namespace Solyanka.Dispatcher
         private static readonly ConcurrentDictionary<Type, object> Handlers = new ConcurrentDictionary<Type, object>();
         private static readonly ConcurrentDictionary<Type, INotifier> Notificators = new ConcurrentDictionary<Type, INotifier>();
 
+        
         /// <summary/>
         /// <param name="serviceFactory"><see cref="ServiceFactory"/></param>
         public Dispatcher(ServiceFactory serviceFactory)
@@ -30,6 +30,7 @@ namespace Solyanka.Dispatcher
             _serviceFactory = serviceFactory;
         }
 
+        
         /// <inheritdoc />
         public async Task<TOut> ProcessRequestAsync<TOut>(IRequest<TOut> request, CancellationToken cancellationToken = default)
         {
@@ -81,6 +82,7 @@ namespace Solyanka.Dispatcher
             });
         }
 
+        
         private static IRequestPipeline<TOut> ConstructPipeline<TOut>(Type requestType, Type handlerType)
         {
             var handler = (IRequestPipeline<TOut>) Handlers.GetOrAdd(requestType,

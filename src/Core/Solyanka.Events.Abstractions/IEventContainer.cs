@@ -10,7 +10,7 @@ namespace Solyanka.Events.Abstractions
         /// <summary>
         /// Collection of <see cref="IEvent"/>
         /// </summary>
-        IList<IEvent> Events { get; set; }
+        IList<IEvent> Events { get; }
 
         /// <summary>
         /// Add event to <c>Events</c>

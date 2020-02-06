@@ -1,18 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <Version>1.0.0</Version>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>Extension to inject Solyanka.ServiceBus using RabbitMq to Microsoft.DependencyInjection</Description>
+        <Description>Command pipeline unit to handle domain events</Description>
         <Copyright>Copyright yaroslow</Copyright>
-        <AssemblyName>Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection</AssemblyName>
-        <PackageId>Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection</PackageId>
-        <PackageTags>integration-events;service-bus;microsoft-di;rabbitmq;solyanka;framework</PackageTags>
+        <AssemblyName>Solyanka.Events.DomainEvents.Microsoft.EntityFrameworkCore</AssemblyName>
+        <PackageId>Solyanka.Events.DomainEvents.Microsoft.EntityFrameworkCore</PackageId>
+        <PackageTags>events;domain-events;pipelines;entity-framework;microsoft-ef;solyanka;framework</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
@@ -22,11 +21,11 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="MassTransit.RabbitMQ" Version="6.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Solyanka.ServiceBus.Microsoft.DependencyInjection\Solyanka.ServiceBus.Microsoft.DependencyInjection.csproj" />
+      <ProjectReference Include="..\..\..\Projects\Events\Solyanka.Events.DomainEvents\Solyanka.Events.DomainEvents.csproj" />
     </ItemGroup>
 
 </Project>

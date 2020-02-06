@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <Version>1.0.0</Version>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
@@ -20,10 +19,6 @@
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
-    
-    <ItemGroup>
-      <PackageReference Include="MassTransit" Version="6.0.1" />
-    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Solyanka.ServiceBus.Abstractions\Solyanka.ServiceBus.Abstractions.csproj" />

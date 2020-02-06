@@ -1,7 +1,7 @@
 namespace Solyanka.Domain.Abstractions.Abstractions.MarkerInterfaces
 {
     /// <summary>
-    /// Domain entity
+    /// Domain value object
     /// </summary>
-    public interface IEntity : IDomainUnit {}
+    public interface IValueObject : IDomainUnit {}
 }

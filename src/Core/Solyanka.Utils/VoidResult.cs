@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Solyanka.Cqs.Abstractions
+namespace Solyanka.Utils
 {
     /// <summary>
     /// Representation of type void

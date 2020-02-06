@@ -1,3 +1,5 @@
+using Solyanka.Utils;
+
 namespace Solyanka.Cqs.Abstractions.Requests
 {
     /// <summary>

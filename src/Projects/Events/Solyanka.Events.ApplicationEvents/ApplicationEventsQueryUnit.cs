@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Solyanka.Cqs.Abstractions;
 using Solyanka.Cqs.Abstractions.PipelineUnits;
 using Solyanka.Cqs.Abstractions.Requests;
-using Solyanka.Dispatcher.Events.Abstractions;
 using Solyanka.Events.Abstractions;
 
 namespace Solyanka.Events.ApplicationEvents
