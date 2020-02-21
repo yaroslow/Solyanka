@@ -13,31 +13,30 @@ Solyanka is a simple CQS/CQRS framework, supporting:
   - sending integration events over service bus
 
 ### Documentation:
-  - [Handling queries, commands and events]()
-  - [Building queries and commands pipelines]()
-  - [Using IEventContainer to handle events]()
-  - [Using IServiceBus to push events to another app]()
+  - [Handling queries, commands and events](https://github.com/yaroslow/Solyanka/blob/master/docs/1.%20Handling%20queries%2C%20commands%20and%20events.md)
+  - [Building queries and commands pipelines](https://github.com/yaroslow/Solyanka/blob/master/docs/2.%20Building%20queries%20and%20commands%20pipelines.md)
+  - [Using IEventContainer to handle events](https://github.com/yaroslow/Solyanka/blob/master/docs/3.%20Using%20IEventContainer%20to%20handle%20events.md)
+  - [Using IServiceBus to push events to another app](https://github.com/yaroslow/Solyanka/blob/master/docs/4.%20Using%20IServiceBus%20to%20push%20events%20to%20another%20app.md)
 
 ### Packages:
-  - Core
-    * Solyanka.Cqs.Abstractions
-    * Solyanka.Events.Abstractions
-    * Solyanka.Utils
-  - Projects
-    - Dispatcher
-      * Solyanka.Dispatcher
-      * Solyanka.Dispatcher.EventsPushing
-    - ServiceBus
-      * Solyanka.ServiceBus.Abstractions
-      * Solyanka.ServiceBus
-      
-  Microsoft DI and other technologies:
-  -Projects.Microsoft
-    - Dispatcher
-      * Solyanka.Dispatcher.Microsoft.DependencyInjection
-    - ServiceBus
-      * Solyanka.ServiceBus.Microsoft.DependencyInjection
-      * Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection
+  Core
+    - Solyanka.Cqs.Abstractions
+    - Solyanka.Events.Abstractions
+    - Solyanka.Utils
+    - Projects
+  Dispatcher
+    - Solyanka.Dispatcher
+    - Solyanka.Dispatcher.EventsPushing
+  ServiceBus
+    - Solyanka.ServiceBus.Abstractions
+    - Solyanka.ServiceBus
+  
+  Projects.Microsoft - using Microsoft DI and other technologies:
+  Dispatcher
+    - Solyanka.Dispatcher.Microsoft.DependencyInjection
+  ServiceBus
+    - Solyanka.ServiceBus.Microsoft.DependencyInjection
+    - Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection
 
 ### Samples
  will be someday
