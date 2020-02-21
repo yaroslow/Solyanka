@@ -9,7 +9,6 @@ This project was started owing to (big thanks to):
 Solyanka is a simple CQS/CQRS framework, supporting:
   - commands, queries, handlers and pipelines;
   - events (domain, application, integration) handling;
-  - domain structures (DDD);
   - sending integration events over service bus
 
 ### Documentation:
