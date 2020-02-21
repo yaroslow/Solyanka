@@ -19,22 +19,22 @@ Solyanka is a simple CQS/CQRS framework, supporting:
   - [Using IServiceBus to push events to another app](https://github.com/yaroslow/Solyanka/blob/master/docs/4.%20Using%20IServiceBus%20to%20push%20events%20to%20another%20app.md)
 
 ### Packages:
-  Core
+  - Core
     - Solyanka.Cqs.Abstractions
     - Solyanka.Events.Abstractions
     - Solyanka.Utils
     - Projects
-  Dispatcher
+  - Dispatcher
     - Solyanka.Dispatcher
     - Solyanka.Dispatcher.EventsPushing
-  ServiceBus
+  - ServiceBus
     - Solyanka.ServiceBus.Abstractions
     - Solyanka.ServiceBus
   
   Projects.Microsoft - using Microsoft DI and other technologies:
-  Dispatcher
+  - Dispatcher
     - Solyanka.Dispatcher.Microsoft.DependencyInjection
-  ServiceBus
+  - ServiceBus
     - Solyanka.ServiceBus.Microsoft.DependencyInjection
     - Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection
 
