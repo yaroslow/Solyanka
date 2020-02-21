@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Solyanka.Cqs.Abstractions;
 using Solyanka.Cqs.Abstractions.Pipelines;
 using Solyanka.Cqs.Abstractions.Requests;
-using Solyanka.Dispatcher.Internal.Cqs;
-using Solyanka.Dispatcher.Internal.Events;
+using Solyanka.Dispatcher.Cqs;
+using Solyanka.Dispatcher.Events;
 using Solyanka.Events.Abstractions;
 using Solyanka.Utils;
 
@@ -24,7 +24,6 @@ namespace Solyanka.Dispatcher
 
         
         /// <summary/>
-        /// <param name="serviceFactory"><see cref="ServiceFactory"/></param>
         public Dispatcher(ServiceFactory serviceFactory)
         {
             _serviceFactory = serviceFactory;
@@ -32,7 +31,7 @@ namespace Solyanka.Dispatcher
 
         
         /// <inheritdoc />
-        public async Task<TOut> ProcessRequestAsync<TOut>(IRequest<TOut> request, CancellationToken cancellationToken = default)
+        public async Task<TOut> ProcessRequest<TOut>(IRequest<TOut> request, CancellationToken cancellationToken = default)
         {
             if (request == null)
             {
@@ -64,7 +63,7 @@ namespace Solyanka.Dispatcher
         }
 
         /// <inheritdoc />
-        public async Task NotifyAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default) where TEvent : IEvent
+        public async Task Notify<TEvent>(TEvent @event, CancellationToken cancellationToken = default) where TEvent : IEvent
         {
             if (@event == null)
             {

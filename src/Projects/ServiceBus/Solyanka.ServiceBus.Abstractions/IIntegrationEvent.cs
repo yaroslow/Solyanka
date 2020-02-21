@@ -1,7 +1,6 @@
 using Solyanka.Events.Abstractions;
-using Solyanka.ServiceBus.Abstractions;
 
-namespace Solyanka.Events.IntegrationEvents
+namespace Solyanka.ServiceBus.Abstractions
 {
     /// <summary>
     /// <see cref="IEvent"/> that will be published to <see cref="IServiceBus"/>

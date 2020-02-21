@@ -6,18 +6,22 @@ using Microsoft.Extensions.DependencyInjection;
 using Solyanka.Cqs.Abstractions;
 using Solyanka.Cqs.Abstractions.Handlers;
 using Solyanka.Cqs.Abstractions.PipelineUnits;
+using Solyanka.Dispatcher.Events;
 using Solyanka.Events.Abstractions;
 using Solyanka.Utils;
 
 namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
 {
     /// <summary>
-    /// Class-extensions of service collection to inject
+    /// Class-extensions over <see cref="IServiceCollection"/> to inject
     /// <see cref="IQueryHandler{TIn,TOut}"/>,
     /// <see cref="ICommandHandler{TIn,TOut}"/>,
     /// <see cref="IQueryPipelineUnit{TIn,TOut}"/>,
     /// <see cref="ICommandPipelineUnit{TIn,TOut}"/>,
-    /// <see cref="IEventHandler{TEvent}"/>
+    /// <see cref="IEventHandler{TEvent}"/>,
+    /// <see cref="IRequestDispatcher"/>,
+    /// <see cref="IEventDispatcher"/>,
+    /// <see cref="IEventContainer"/>
     /// to Microsoft DI container
     /// </summary>
     public static class ServiceCollectionExtensions
@@ -52,6 +56,8 @@ namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
             services.AddScoped<IRequestDispatcher, Dispatcher>();
             services.AddScoped<IEventDispatcher, Dispatcher>();
 
+            services.AddScoped<IEventContainer, EventContainer>();
+            
             return services;
         }
 

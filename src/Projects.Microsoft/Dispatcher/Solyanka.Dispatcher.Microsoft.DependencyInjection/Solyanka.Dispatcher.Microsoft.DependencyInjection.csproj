@@ -11,7 +11,7 @@
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Dispatcher.Microsoft.DependencyInjection</AssemblyName>
         <PackageId>Solyanka.Dispatcher.Microsoft.DependencyInjection</PackageId>
-        <PackageTags>dispatcher;mediator;microsoft-di;solyanka;framework</PackageTags>
+        <PackageTags>dispatcher;mediator;microsoft-di;solyanka;framework;cqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Scrutor" Version="3.1.0" />
+      <PackageReference Include="Scrutor" Version="3.2.0" />
     </ItemGroup>
 
 </Project>

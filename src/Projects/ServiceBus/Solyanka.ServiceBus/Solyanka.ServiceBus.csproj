@@ -11,7 +11,7 @@
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.ServiceBus</AssemblyName>
         <PackageId>Solyanka.ServiceBus</PackageId>
-        <PackageTags>integration-events;service-bus;solyanka;framework</PackageTags>
+        <PackageTags>integration-events;service-bus;solyanka;framework;sqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>

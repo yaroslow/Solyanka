@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Solyanka.Events.Abstractions;
 using Solyanka.Utils;
 
-namespace Solyanka.Dispatcher.Internal.Events
+namespace Solyanka.Dispatcher.Events
 {
     internal class Notifier<TEvent> : INotifier where TEvent : IEvent
     {

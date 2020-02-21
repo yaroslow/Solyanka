@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>Command pipeline unit to handle domain events</Description>
+        <Description>Query and command pipeline units to handle events in IEventContainer</Description>
         <Copyright>Copyright yaroslow</Copyright>
-        <AssemblyName>Solyanka.Events.DomainEvents.Microsoft.EntityFrameworkCore</AssemblyName>
-        <PackageId>Solyanka.Events.DomainEvents.Microsoft.EntityFrameworkCore</PackageId>
-        <PackageTags>events;domain-events;pipelines;entity-framework;microsoft-ef;solyanka;framework</PackageTags>
+        <AssemblyName>Solyanka.Dispatcher.EventsPushing</AssemblyName>
+        <PackageId>Solyanka.Dispatcher.EventsPushing</PackageId>
+        <PackageTags>dispatcher;pipelines;solyanka;framework;sqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
@@ -21,11 +21,8 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\Projects\Events\Solyanka.Events.DomainEvents\Solyanka.Events.DomainEvents.csproj" />
+      <ProjectReference Include="..\..\..\Core\Solyanka.Cqs.Abstractions\Solyanka.Cqs.Abstractions.csproj" />
+      <ProjectReference Include="..\..\..\Core\Solyanka.Events.Abstractions\Solyanka.Events.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

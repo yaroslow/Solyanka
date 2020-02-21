@@ -10,7 +10,7 @@ namespace Solyanka.ServiceBus.Microsoft.DependencyInjection.Infrastructure
     public class ConsumersConfiguration
     {
         /// <summary>
-        /// Types of consumers
+        /// Types that implement <see cref="IConsumer"/>
         /// </summary>
         public List<Type> ConsumerTypes { get; }
 

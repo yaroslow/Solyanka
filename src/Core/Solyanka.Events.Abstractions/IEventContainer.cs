@@ -1,26 +1,29 @@
-using System.Collections.Generic;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Solyanka.Events.Abstractions
 {
     /// <summary>
-    /// Container that contains collection of <see cref="IEvent"/>
+    /// Container of <see cref="IEvent"/>
     /// </summary>
     public interface IEventContainer
     {
         /// <summary>
-        /// Collection of <see cref="IEvent"/>
-        /// </summary>
-        IList<IEvent> Events { get; }
-
-        /// <summary>
-        /// Add event to <c>Events</c>
+        /// Add <see cref="IEvent"/> to container
         /// </summary>
         /// <param name="event"><see cref="IEvent"/></param>
-        void AddEvent(IEvent @event);
+        void Push(IEvent @event);
 
         /// <summary>
-        /// Clear <c>Events</c>
+        /// Clear container
         /// </summary>
-        void ClearEvents();
+        void Clear();
+        
+        /// <summary>
+        /// Handle all <see cref="IEvent"/> in container
+        /// </summary>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <returns><see cref="Task"/></returns>
+        Task Handle(CancellationToken cancellationToken = default);
     }
 }

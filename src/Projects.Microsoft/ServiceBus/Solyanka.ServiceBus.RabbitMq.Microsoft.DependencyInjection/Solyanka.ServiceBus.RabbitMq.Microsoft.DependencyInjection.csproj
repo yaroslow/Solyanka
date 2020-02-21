@@ -11,7 +11,7 @@
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection</AssemblyName>
         <PackageId>Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection</PackageId>
-        <PackageTags>integration-events;service-bus;microsoft-di;rabbitmq;solyanka;framework</PackageTags>
+        <PackageTags>integration-events;service-bus;microsoft-di;rabbitmq;solyanka;framework;cqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
@@ -19,13 +19,13 @@
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
-    
-    <ItemGroup>
-      <PackageReference Include="MassTransit.RabbitMQ" Version="6.0.1" />
-    </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Solyanka.ServiceBus.Microsoft.DependencyInjection\Solyanka.ServiceBus.Microsoft.DependencyInjection.csproj" />
+        <ProjectReference Include="..\Solyanka.ServiceBus.Microsoft.DependencyInjection\Solyanka.ServiceBus.Microsoft.DependencyInjection.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="MassTransit.RabbitMQ" Version="6.1.0" />
     </ItemGroup>
 
 </Project>

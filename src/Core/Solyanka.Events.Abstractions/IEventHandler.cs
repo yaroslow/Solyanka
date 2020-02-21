@@ -5,7 +5,7 @@ using Solyanka.Utils;
 namespace Solyanka.Events.Abstractions
 {
     /// <summary>
-    /// Event handler
+    /// Handler of <see cref="IEvent"/>
     /// </summary>
     /// <typeparam name="TEvent">Event type</typeparam>
     public interface IEventHandler<in TEvent> where TEvent : IEvent
@@ -20,7 +20,7 @@ namespace Solyanka.Events.Abstractions
     }
 
     /// <summary>
-    /// Sync event hanlder
+    /// Sync handler of <see cref="IEvent"/>
     /// </summary>
     /// <typeparam name="TEvent">Event type</typeparam>
     public abstract class SyncEventHandler<TEvent> : IEventHandler<TEvent> where TEvent : IEvent

@@ -3,7 +3,7 @@ using Solyanka.Cqs.Abstractions.Requests;
 namespace Solyanka.Cqs.Abstractions.PipelineUnits
 {
     /// <summary>
-    /// Command pipeline stage
+    /// Pipeline stage of <see cref="ICommand{TOut}"/> pipeline
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="ICommand"/></typeparam>
     /// <typeparam name="TOut">Output data type</typeparam>

@@ -11,7 +11,7 @@
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Events.Abstractions</AssemblyName>
         <PackageId>Solyanka.Events.Abstractions</PackageId>
-        <PackageTags>dispatcher;mediator;events;handlers;solyanka;framework</PackageTags>
+        <PackageTags>dispatcher;mediator;events;handlers;solyanka;framework;sqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>

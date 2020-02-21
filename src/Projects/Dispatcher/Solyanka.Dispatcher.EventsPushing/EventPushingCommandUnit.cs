@@ -3,33 +3,37 @@ using System.Threading.Tasks;
 using Solyanka.Cqs.Abstractions;
 using Solyanka.Cqs.Abstractions.PipelineUnits;
 using Solyanka.Cqs.Abstractions.Requests;
-using Solyanka.ServiceBus.Abstractions;
+using Solyanka.Events.Abstractions;
 
-namespace Solyanka.Events.IntegrationEvents
+namespace Solyanka.Dispatcher.EventsPushing
 {
     /// <summary>
-    /// <see cref="ICommandPipelineUnit{TIn,TOut}"/> that publishes events to <see cref="IServiceBus"/>
+    /// <see cref="ICommandPipelineUnit{TIn,TOut}"/> that handles all events in <see cref="IEventContainer"/>
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="ICommand{TOut}"/></typeparam>
     /// <typeparam name="TOut">Output data type</typeparam>
-    public class IntegrationEventsCommandUnit<TIn, TOut> : ICommandPipelineUnit<TIn, TOut> where TIn : ICommand<TOut>
+    public class EventPushingCommandUnit<TIn, TOut> : ICommandPipelineUnit<TIn, TOut> where TIn : ICommand<TOut>
     {
-        private readonly IServiceBus _serviceBus;
+        private readonly IEventContainer _eventContainer;
 
 
         /// <summary/>
-        public IntegrationEventsCommandUnit(IServiceBus serviceBus)
+        public EventPushingCommandUnit(IEventContainer eventContainer)
         {
-            _serviceBus = serviceBus;
+            _eventContainer = eventContainer;
         }
 
         
         /// <inheritdoc />
         public async Task<TOut> Handle(TIn request, CancellationToken cancellationToken, RequestHandlerDelegate<TOut> next)
         {
+            //PreHandling
+            await _eventContainer.Handle(cancellationToken);
+            
             var result = await next();
 
-            await _serviceBus.PublishAsync(cancellationToken);
+            //PostHanding
+            await _eventContainer.Handle(cancellationToken);
             
             return result;
         }

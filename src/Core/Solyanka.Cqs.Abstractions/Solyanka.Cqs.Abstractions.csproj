@@ -11,7 +11,7 @@
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Cqs.Abstractions</AssemblyName>
         <PackageId>Solyanka.Cqs.Abstractions</PackageId>
-        <PackageTags>dispatcher;mediator;queries;commands;handlers;pipelines;solyanka;framework</PackageTags>
+        <PackageTags>dispatcher;mediator;queries;commands;handlers;pipelines;solyanka;framework;cqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>

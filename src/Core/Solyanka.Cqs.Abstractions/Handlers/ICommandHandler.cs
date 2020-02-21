@@ -6,14 +6,14 @@ using Solyanka.Utils;
 namespace Solyanka.Cqs.Abstractions.Handlers
 {
     /// <summary>
-    /// Command handler returning data
+    /// Handler of <see cref="ICommand{TOut}"/>
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="ICommand"/></typeparam>
     /// <typeparam name="TOut">Output data type</typeparam>
     public interface ICommandHandler<in TIn, TOut> : IRequestHandler<TIn, TOut> where TIn : ICommand<TOut> {}
 
     /// <summary>
-    /// Sync comand handler returning data
+    /// Sync handler of <see cref="ICommand"/>
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="ICommand{TOut}"/></typeparam>
     /// <typeparam name="TOut">Тип выходного значения</typeparam>
@@ -32,7 +32,7 @@ namespace Solyanka.Cqs.Abstractions.Handlers
     }
 
     /// <summary>
-    /// Command handler non-returning data
+    /// Handler of <see cref="ICommand"/>
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="ICommand"/></typeparam>
     public abstract class CommandHandler<TIn> : ICommandHandler<TIn, VoidResult> where TIn : ICommand
@@ -54,7 +54,7 @@ namespace Solyanka.Cqs.Abstractions.Handlers
     }
     
     /// <summary>
-    /// Sync command handler non-returning data
+    /// Sync handler of <see cref="ICommand"/>
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="ICommand"/></typeparam>
     public abstract class SyncCommandHandler<TIn> : ICommandHandler<TIn, VoidResult> where TIn : ICommand

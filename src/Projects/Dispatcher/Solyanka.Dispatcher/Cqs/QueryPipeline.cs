@@ -8,17 +8,17 @@ using Solyanka.Cqs.Abstractions.PipelineUnits;
 using Solyanka.Cqs.Abstractions.Requests;
 using Solyanka.Utils;
 
-namespace Solyanka.Dispatcher.Internal.Cqs
+namespace Solyanka.Dispatcher.Cqs
 {
-    internal class CommandPipeline<TIn, TOut> : HandlerFactory, ICommandPipeline<TIn, TOut> where TIn : ICommand<TOut>
+    internal class QueryPipeline<TIn, TOut> : HandlerFactory, IQueryPipeline<TIn, TOut> where TIn : IQuery<TOut>
     {
         public Task<TOut> ProcessPipeline(IRequest<TOut> request, CancellationToken cancellationToken, ServiceFactory serviceFactory)
         {
-            Task<TOut> Handler() => GetHandler<ICommandHandler<TIn, TOut>>(serviceFactory).Handle((TIn) request, cancellationToken);
+            Task<TOut> Handler() => GetHandler<IQueryHandler<TIn, TOut>>(serviceFactory).Handle((TIn) request, cancellationToken);
             var handler = (RequestHandlerDelegate<TOut>) Handler;
 
             return serviceFactory
-                .GetServices<ICommandPipelineUnit<TIn, TOut>>()
+                .GetServices<IQueryPipelineUnit<TIn, TOut>>()
                 .Reverse()
                 .Aggregate(handler, (next, pipelineUnit) => () => pipelineUnit.Handle((TIn) request, cancellationToken, next))();
         }

@@ -5,14 +5,14 @@ using Solyanka.Cqs.Abstractions.Requests;
 namespace Solyanka.Cqs.Abstractions.Handlers
 {
     /// <summary>
-    /// Query handler
+    /// Handler of <see cref="IQuery{TOut}"/>
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="IQuery{TOut}"/></typeparam>
     /// <typeparam name="TOut">Output data type</typeparam>
     public interface IQueryHandler<in TIn, TOut> : IRequestHandler<TIn, TOut> where TIn : IQuery<TOut> {}
     
     /// <summary>
-    /// Sync query handler
+    /// Sync handler of <see cref="IQuery{TOut}"/>
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="IQuery{TOut}"/></typeparam>
     /// <typeparam name="TOut">Output data type</typeparam>

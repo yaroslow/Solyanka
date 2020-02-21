@@ -6,7 +6,7 @@ using Solyanka.Utils;
 namespace Solyanka.Cqs.Abstractions.Pipelines
 {
     /// <summary>
-    /// Request pipeline
+    /// Pipeline of <see cref="IRequest{TOut}"/>
     /// </summary>
     /// <typeparam name="TOut">Output data type</typeparam>
     public interface IRequestPipeline<TOut>

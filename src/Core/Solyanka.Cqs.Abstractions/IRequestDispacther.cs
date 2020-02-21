@@ -5,7 +5,7 @@ using Solyanka.Cqs.Abstractions.Requests;
 namespace Solyanka.Cqs.Abstractions
 {
     /// <summary>
-    /// Dispatcher handling requests
+    /// Dispatcher handling <see cref="IQuery{TOut}"/> or <see cref="ICommand{TOut}"/>
     /// </summary>
     public interface IRequestDispatcher
     {
@@ -13,9 +13,9 @@ namespace Solyanka.Cqs.Abstractions
         /// Handling
         /// </summary>
         /// <typeparam name="TOut">Output data type</typeparam>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request of type <see cref="IQuery{TOut}"/> or <see cref="ICommand{TOut}"/></param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
         /// <returns><see cref="Task{TOut}"/></returns>
-        Task<TOut> ProcessRequestAsync<TOut>(IRequest<TOut> request, CancellationToken cancellationToken = default);
+        Task<TOut> ProcessRequest<TOut>(IRequest<TOut> request, CancellationToken cancellationToken = default);
     }
 }

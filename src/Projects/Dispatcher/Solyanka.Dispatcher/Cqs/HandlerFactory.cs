@@ -1,7 +1,7 @@
 using System;
 using Solyanka.Utils;
 
-namespace Solyanka.Dispatcher.Internal.Cqs
+namespace Solyanka.Dispatcher.Cqs
 {
     internal abstract class HandlerFactory
     {

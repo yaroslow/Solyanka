@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 namespace Solyanka.ServiceBus.Abstractions
 {
     /// <summary>
-    /// Delegate defining the procedure for publishing the object to service bus
+    /// Delegate defining the procedure for publishing the <see cref="IIntegrationEvent"/> to bus
     /// </summary>
-    /// <param name="objToPublish">Object that needs to be published</param>
+    /// <param name="obj">Object that needs to be published</param>
     /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
-    public delegate Task ServiceBusPublisher(object objToPublish, CancellationToken cancellationToken);
+    public delegate Task ServiceBusPublisher(object obj, CancellationToken cancellationToken);
     
     /// <summary>
     /// Class-extension over <see cref="ServiceBusPublisher"/>
@@ -16,25 +16,15 @@ namespace Solyanka.ServiceBus.Abstractions
     public static class ServiceBusPublisherExtensions
     {
         /// <summary>
-        /// Asyncronously publish object to service bus
+        /// Publish <see cref="IIntegrationEvent"/> to service bus
         /// </summary>
         /// <param name="publisher"><see cref="ServiceBusPublisher"/></param>
-        /// <param name="objToPublish">Object that needs to be published</param>
+        /// <param name="event"><see cref="IIntegrationEvent"/> that needs to be published</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
-        /// <returns></returns>
-        public static async Task PublishAsync(this ServiceBusPublisher publisher, object objToPublish, CancellationToken cancellationToken = default)
+        /// <returns><see cref="Task"/></returns>
+        public static async Task Publish(this ServiceBusPublisher publisher, IIntegrationEvent @event, CancellationToken cancellationToken = default)
         {
-            await publisher(objToPublish, cancellationToken);
-        }
-
-        /// <summary>
-        /// Publish object to service bus
-        /// </summary>
-        /// <param name="publisher"><see cref="ServiceBusPublisher"/></param>
-        /// <param name="objToPublish">Object that needs to be published</param>
-        public static void Publish(this ServiceBusPublisher publisher, object objToPublish)
-        {
-            publisher(objToPublish, CancellationToken.None).GetAwaiter().GetResult();
+            await publisher(@event, cancellationToken);
         }
     }
 }

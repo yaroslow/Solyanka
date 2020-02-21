@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace Solyanka.Events.Abstractions
 {
     /// <summary>
-    /// Dispacther handling events
+    /// Dispacther handling <see cref="IEvent"/>
     /// </summary>
     public interface IEventDispatcher
     {
@@ -15,6 +15,6 @@ namespace Solyanka.Events.Abstractions
         /// <param name="event">Event</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
         /// <returns><see cref="Task"/></returns>
-        Task NotifyAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default) where TEvent : IEvent;
+        Task Notify<TEvent>(TEvent @event, CancellationToken cancellationToken = default) where TEvent : IEvent;
     }
 }

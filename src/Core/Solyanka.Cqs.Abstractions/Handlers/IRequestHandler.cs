@@ -5,7 +5,7 @@ using Solyanka.Cqs.Abstractions.Requests;
 namespace Solyanka.Cqs.Abstractions.Handlers
 {
     /// <summary>
-    /// Request handler
+    /// Handler of <see cref="IRequest{TOut}"/>
     /// </summary>
     /// <typeparam name="TIn">Input data type implementing <see cref="IRequest{TOut}"/></typeparam>
     /// <typeparam name="TOut">Output data type</typeparam>
