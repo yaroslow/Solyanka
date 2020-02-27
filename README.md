@@ -18,27 +18,22 @@ Solyanka is a simple CQS/CQRS framework, supporting:
   - [Using IServiceBus to push events to another app](https://github.com/yaroslow/Solyanka/blob/master/docs/4.%20Using%20IServiceBus%20to%20push%20events%20to%20another%20app.md)
 
 ### Packages:
-  - Core
-    - Solyanka.Cqs.Abstractions
-    - Solyanka.Events.Abstractions
-    - Solyanka.Utils
-    - Projects
-  - Dispatcher
-    - Solyanka.Dispatcher
-    - Solyanka.Dispatcher.EventsPushing
-  - ServiceBus
-    - Solyanka.ServiceBus.Abstractions
-    - Solyanka.ServiceBus
-  
-  Projects.Microsoft - using Microsoft DI and other technologies:
-  - Dispatcher
-    - Solyanka.Dispatcher.Microsoft.DependencyInjection
-  - ServiceBus
-    - Solyanka.ServiceBus.Microsoft.DependencyInjection
-    - Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection
 
-### Samples
- will be someday
+  |                             Package name                              | Pipelines |
+  | --------------------------------------------------------------------- | --------- |
+  |                                 `Core`                                |  |
+  | Solyanka.Cqs.Abstractions                                             | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Core/Solyanka.Cqs.Abstractions)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=4) |
+  | Solyanka.Events.Abstractions                                          | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Core/Solyanka.Events.Abstractions)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=5) |
+  | Solyanka.Utils                                                        | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Core/Solyanka.Utils)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=3) |
+  |                               `Projects`                              |  |
+  | Solyanka.Dispatcher                                                   | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Projects/Dispatcher/Solyanka.Dispatcher)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=6) |
+  | Solyanka.Dispatcher.EventsPushing                                     | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Projects/Dispatcher/Solyanka.Dispatcher.EventsPushing)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=7) |
+  | Solyanka.ServiceBus.Abstractions                                      | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Projects/ServiceBus/Solyanka.ServiceBus.Abstractions)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=8) |
+  | Solyanka.ServiceBus                                                   | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Projects/ServiceBus/Solyanka.ServiceBus)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=9) |
+  |                           `Projects.Microsoft`                        |  |
+  | Solyanka.Dispatcher.Microsoft.DependencyInjection                     | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Projects.Microsoft/Dispatcher/Solyanka.Dispatcher.Microsoft.DependencyInjection)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=10) |
+  | Solyanka.ServiceBus.Microsoft.DependencyInjection                     | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Projects.Microsoft/ServiceBus/Solyanka.ServiceBus.Microsoft.DependencyInjection)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=11) |
+  | Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection            | [![Build status](https://dev.azure.com/yaroslow/Solyanka/_apis/build/status/Projects.Microsoft/ServiceBus/Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection)](https://dev.azure.com/yaroslow/Solyanka/_build/latest?definitionId=12) |
 
 ### In mind
 - Validation
