@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Extension to inject Solyanka.ServiceBus using RabbitMq to Microsoft.DependencyInjection</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection</AssemblyName>
         <PackageId>Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection</PackageId>

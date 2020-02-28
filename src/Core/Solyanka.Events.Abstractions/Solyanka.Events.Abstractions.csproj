@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Abstractions for handling events</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Events.Abstractions</AssemblyName>
         <PackageId>Solyanka.Events.Abstractions</PackageId>

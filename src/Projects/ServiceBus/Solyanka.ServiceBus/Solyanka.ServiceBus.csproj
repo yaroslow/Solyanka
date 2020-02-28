@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Service bus transfering integration events or other objects</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.ServiceBus</AssemblyName>
         <PackageId>Solyanka.ServiceBus</PackageId>

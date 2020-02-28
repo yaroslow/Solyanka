@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Abstractions for handling commands and queries</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Cqs.Abstractions</AssemblyName>
         <PackageId>Solyanka.Cqs.Abstractions</PackageId>

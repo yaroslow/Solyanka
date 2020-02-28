@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Abstractions to build integration service bus to transfer integration events or other objects</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.ServiceBus.Abstractions</AssemblyName>
         <PackageId>Solyanka.ServiceBus.Abstractions</PackageId>

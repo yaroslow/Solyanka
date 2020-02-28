@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Dispatcher building pipelines and handling queries, commands and events</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Dispatcher</AssemblyName>
         <PackageId>Solyanka.Dispatcher</PackageId>

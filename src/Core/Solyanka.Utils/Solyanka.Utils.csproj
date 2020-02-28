@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Utils using in Solyanka projects</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Utils</AssemblyName>
         <PackageId>Solyanka.Utils</PackageId>

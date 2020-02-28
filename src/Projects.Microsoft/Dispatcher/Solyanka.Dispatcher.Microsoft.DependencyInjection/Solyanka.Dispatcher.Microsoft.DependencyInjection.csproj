@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Extension to inject Solyanka.Dispatcher to Microsoft.DependencyInjection</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Dispatcher.Microsoft.DependencyInjection</AssemblyName>
         <PackageId>Solyanka.Dispatcher.Microsoft.DependencyInjection</PackageId>

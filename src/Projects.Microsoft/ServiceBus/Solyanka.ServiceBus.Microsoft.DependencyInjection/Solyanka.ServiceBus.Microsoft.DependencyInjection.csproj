@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Extension to inject Solyanka.ServiceBus to Microsoft.DependencyInjection</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.ServiceBus.Microsoft.DependencyInjection</AssemblyName>
         <PackageId>Solyanka.ServiceBus.Microsoft.DependencyInjection</PackageId>

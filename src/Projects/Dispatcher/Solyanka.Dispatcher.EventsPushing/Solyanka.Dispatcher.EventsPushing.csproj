@@ -8,6 +8,7 @@
 
     <PropertyGroup>
         <Description>Query and command pipeline units to handle events in IEventContainer</Description>
+        <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Dispatcher.EventsPushing</AssemblyName>
         <PackageId>Solyanka.Dispatcher.EventsPushing</PackageId>
