@@ -23,12 +23,13 @@ namespace Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection
         /// <param name="rabbitMqEndpointSettings">Configuring <see cref="RabbitMqEndpointSettings"/></param>
         /// <param name="consumersConfigurationAction">Configuring <see cref="ConsumersConfiguration"/></param>
         /// <returns><see cref="IServiceCollection"/></returns>
-        public static IServiceCollection AddRabbitMqServiceBus(this IServiceCollection services, Action<IList<Assembly>> assembliesSetup, Action<RabbitMqEndpointSettings> rabbitMqEndpointSettings, Action<ConsumersConfiguration> consumersConfigurationAction = null)
-        {    
+        public static IServiceCollection AddRabbitMqServiceBus(this IServiceCollection services, Action<IList<Assembly>> assembliesSetup, 
+            Action<RabbitMqEndpointSettings> rabbitMqEndpointSettings, Action<ConsumersConfiguration> consumersConfigurationAction = null)
+        {
             var configuration = new RabbitMqEndpointSettings();
             rabbitMqEndpointSettings.Invoke(configuration);
 
-            services.AddServiceBus(assembliesSetup, provider =>
+            services.AddServiceBus(assembliesSetup, context =>
                 {
                     return Bus.Factory.CreateUsingRabbitMq(cfg =>
                     {
@@ -38,12 +39,14 @@ namespace Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection
                             h.Password(configuration.Password);
                         });
 
-                        cfg.ReceiveEndpoint(configuration.ServiceEndpointName, e =>
+                        cfg.ReceiveEndpoint(configuration.ServiceEndpointName, config =>
                         {
-                            e.Durable = configuration.Durable;
-                            e.PrefetchCount = configuration.PrefetchCount;
-                            e.UseMessageRetry(x => x.Interval(configuration.RetryCount, configuration.RetryInterval));
-                            e.ConfigureConsumers(provider);
+
+                            config.Durable = true;
+                            config.PrefetchCount = configuration.PrefetchCount;
+                            config.UseMessageRetry(x =>
+                                x.Interval(configuration.RetryCount, configuration.RetryInterval));
+                            config.ConfigureConsumers(context);
                         });
                     });
                 },

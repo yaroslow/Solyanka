@@ -5,7 +5,7 @@ using System.Reflection;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Solyanka.Events.Abstractions;
+using Solyanka.Cqrs.Handlers;
 using Solyanka.ServiceBus.Abstractions;
 using Solyanka.ServiceBus.Microsoft.DependencyInjection.Infrastructure;
 
@@ -25,7 +25,8 @@ namespace Solyanka.ServiceBus.Microsoft.DependencyInjection
         /// <param name="busFactory">Configured bus factory</param>
         /// <param name="consumersConfigurationAction"><see cref="ConsumersConfiguration"/></param>
         /// <returns><see cref="IServiceCollection"/></returns>
-        public static IServiceCollection AddServiceBus(this IServiceCollection services, Action<IList<Assembly>> assembliesSetup, Func<IServiceProvider, IBusControl> busFactory, Action<ConsumersConfiguration> consumersConfigurationAction = null)
+        public static IServiceCollection AddServiceBus(this IServiceCollection services, Action<IList<Assembly>> assembliesSetup, 
+            Func<IBusRegistrationContext, IBusControl> busFactory, Action<ConsumersConfiguration> consumersConfigurationAction = null)
         {
             var consumersConfiguration = new ConsumersConfiguration();
             consumersConfigurationAction?.Invoke(consumersConfiguration);
@@ -33,10 +34,10 @@ namespace Solyanka.ServiceBus.Microsoft.DependencyInjection
             services.AddScoped<IServiceBus, ServiceBus>();
             services.InjectIntegrationEventHandler(assembliesSetup);
 
-            services.AddMassTransit(options =>
+            services.AddMassTransit(busConfigurator =>
             {
-                options.AddBus(busFactory);
-                options.AddConsumers(consumersConfiguration.ConsumerTypes.ToArray());
+                busConfigurator.AddBus(busFactory);
+                busConfigurator.AddConsumers(consumersConfiguration.ConsumerTypes.ToArray());
             });
 
             services.AddScoped<ServiceBusPublisher>(provider =>

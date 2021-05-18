@@ -1,4 +1,4 @@
-using Solyanka.Events.Abstractions;
+using Solyanka.Cqrs.Requests;
 
 namespace Solyanka.ServiceBus.Abstractions
 {

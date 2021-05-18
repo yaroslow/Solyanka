@@ -44,10 +44,5 @@ namespace Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection
         /// Retrying interval
         /// </summary>
         public int RetryInterval { get; set; } = 100;
-
-        /// <summary>
-        /// Messages survive broker restart
-        /// </summary>
-        public bool Durable { get; set; } = true;
     }
 }

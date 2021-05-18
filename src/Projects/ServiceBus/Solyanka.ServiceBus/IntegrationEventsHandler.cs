@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Solyanka.Events.Abstractions;
+using Solyanka.Cqrs.Handlers;
 using Solyanka.ServiceBus.Abstractions;
 
 namespace Solyanka.ServiceBus
@@ -18,9 +18,9 @@ namespace Solyanka.ServiceBus
         {
             _serviceBus = serviceBus;
         }
-        
-        
-        /// <inheritdoc />
+
+
+        /// <inheritdoc cref="IEventHandler{TEvent}.Handle" />
         public async Task Handle(IIntegrationEvent @event, CancellationToken cancellationToken)
         {
             await _serviceBus.Publish(@event, cancellationToken);

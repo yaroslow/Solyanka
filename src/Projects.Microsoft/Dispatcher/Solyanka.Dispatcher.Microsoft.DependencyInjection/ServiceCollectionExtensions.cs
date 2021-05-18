@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
-using Solyanka.Cqs.Abstractions;
-using Solyanka.Cqs.Abstractions.Handlers;
-using Solyanka.Cqs.Abstractions.PipelineUnits;
-using Solyanka.Dispatcher.Events;
-using Solyanka.Events.Abstractions;
+using Solyanka.Cqrs;
+using Solyanka.Cqrs.CrossCuttingConcerns;
+using Solyanka.Cqrs.Handlers;
 using Solyanka.Utils;
 
 namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
@@ -16,12 +14,11 @@ namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
     /// Class-extensions over <see cref="IServiceCollection"/> to inject
     /// <see cref="IQueryHandler{TIn,TOut}"/>,
     /// <see cref="ICommandHandler{TIn,TOut}"/>,
-    /// <see cref="IQueryPipelineUnit{TIn,TOut}"/>,
-    /// <see cref="ICommandPipelineUnit{TIn,TOut}"/>,
-    /// <see cref="IEventHandler{TEvent}"/>,
-    /// <see cref="IRequestDispatcher"/>,
-    /// <see cref="IEventDispatcher"/>,
-    /// <see cref="IEventContainer"/>
+    /// <see cref="IEventHandler{TEvent}"/>
+    /// <see cref="IQueryCrossCuttingConcern{TIn,TOut}"/>,
+    /// <see cref="ICommandCrossCuttingConcern{TIn,TOut}"/>,
+    /// <see cref="IRequestDispatcher"/>
+    /// <see cref="IEventStore"/>
     /// to Microsoft DI container
     /// </summary>
     public static class ServiceCollectionExtensions
@@ -54,9 +51,8 @@ namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
             
             services.AddScoped<Dispatcher>();
             services.AddScoped<IRequestDispatcher, Dispatcher>();
-            services.AddScoped<IEventDispatcher, Dispatcher>();
 
-            services.AddScoped<IEventContainer, EventContainer>();
+            services.AddScoped<IEventStore, EventStore>();
             
             return services;
         }
@@ -76,11 +72,11 @@ namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
             foreach (var queryPipelineUnit in queryPipelineUnits)
             {
                 if (!(queryPipelineUnit.IsClass && queryPipelineUnit.GetInterfaces().Any(i =>
-                          i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQueryPipelineUnit<,>))))
+                          i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQueryCrossCuttingConcern<,>))))
                     throw new InvalidOperationException(
-                        $"It is impossible to correlate type of {queryPipelineUnit} with type {typeof(IQueryPipelineUnit<,>)}");
+                        $"It is impossible to correlate type of {queryPipelineUnit} with type {typeof(IQueryCrossCuttingConcern<,>)}");
 
-                services.AddScoped(typeof(IQueryPipelineUnit<,>), queryPipelineUnit);
+                services.AddScoped(typeof(IQueryCrossCuttingConcern<,>), queryPipelineUnit);
             }
 
             return services;
@@ -101,11 +97,11 @@ namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
             foreach (var commandPipelineUnit in commandPipelineUnits)
             {
                 if (!(commandPipelineUnit.IsClass && commandPipelineUnit.GetInterfaces().Any(i =>
-                          i.IsGenericType && i.GetGenericTypeDefinition() == typeof(ICommandPipelineUnit<,>))))
+                          i.IsGenericType && i.GetGenericTypeDefinition() == typeof(ICommandCrossCuttingConcern<,>))))
                     throw new InvalidOperationException(
-                        $"It is impossible to correlate type of {commandPipelineUnit} with type {typeof(ICommandPipelineUnit<,>)}");
+                        $"It is impossible to correlate type of {commandPipelineUnit} with type {typeof(ICommandCrossCuttingConcern<,>)}");
 
-                services.AddScoped(typeof(ICommandPipelineUnit<,>), commandPipelineUnit);
+                services.AddScoped(typeof(ICommandCrossCuttingConcern<,>), commandPipelineUnit);
             }
 
             return services;

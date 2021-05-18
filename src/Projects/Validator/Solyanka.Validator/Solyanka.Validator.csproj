@@ -1,18 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>Service bus transfering integration events or other objects</Description>
+        <Description>Mechanism to validate models and their properties</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
-        <AssemblyName>Solyanka.ServiceBus</AssemblyName>
-        <PackageId>Solyanka.ServiceBus</PackageId>
-        <PackageTags>integration-events;service-bus;solyanka;framework;sqrs</PackageTags>
+        <AssemblyName>Solyanka.Validator</AssemblyName>
+        <PackageId>Solyanka.Validator</PackageId>
+        <PackageTags>validator;validation;solyanka;framework;sqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
@@ -22,7 +21,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Solyanka.ServiceBus.Abstractions\Solyanka.ServiceBus.Abstractions.csproj" />
+      <ProjectReference Include="..\..\..\Core\Solyanka.Expressions\Solyanka.Expressions.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
@@ -7,22 +7,18 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>Service bus transfering integration events or other objects</Description>
+        <Description>Abstractions for DDD</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
-        <AssemblyName>Solyanka.ServiceBus</AssemblyName>
-        <PackageId>Solyanka.ServiceBus</PackageId>
-        <PackageTags>integration-events;service-bus;solyanka;framework;sqrs</PackageTags>
+        <AssemblyName>Solyanka.Ddd</AssemblyName>
+        <PackageId>Solyanka.Ddd</PackageId>
+        <PackageTags>framework;ddd</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
         <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
+        <AssemblyOriginatorKeyFile>..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Solyanka.ServiceBus.Abstractions\Solyanka.ServiceBus.Abstractions.csproj" />
-    </ItemGroup>
 
 </Project>
