@@ -3,12 +3,8 @@ name: Core.Solyanka.Utils
 on:
   push:
     branches: [ master ]
-    paths: 
-      - 'src/Core/Solyanka.Utils/'
   pull_request:
     branches: [ master ]
-    paths: 
-      - 'src/Core/Solyanka.Utils/'
     
 jobs:
   build:
