@@ -11,8 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
     env: 
+      PROJ: Solyanka.Utils.csproj
       PROJ_DIR: src/Core/Solyanka.Utils/
-      PROJ: src/Core/Solyanka.Utils/Solyanka.Utils.csproj
+      NUGET: https://api.nuget.org/v3/index.json
 
     steps:
     - uses: actions/checkout@v2
@@ -23,13 +24,13 @@ jobs:
         dotnet-version: 5.0.x
         
     - name: Restore dependencies
-      run: dotnet restore ${{ env.PROJ }}
+      run: dotnet restore ${{ env.PROJ_DIR }}${{ env.PROJ }}
       
     - name: Build
-      run: dotnet build ${{ env.PROJ }} --no-restore -c Release
+      run: dotnet build ${{ env.PROJ_DIR }}${{ env.PROJ }} --no-restore -c Release
       
     - name: Pack
-      run: dotnet pack ${{ env.PROJ }} --no-build -c Release
+      run: dotnet pack ${{ env.PROJ_DIR }}${{ env.PROJ }} --no-build -c Release
       
     - name: Push
-      run: dotnet nuget push ${{ env.PROJ_DIR }}/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+      run: dotnet nuget push ${{ env.PROJ_DIR }}/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate -s ${{ env.NUGET }}
