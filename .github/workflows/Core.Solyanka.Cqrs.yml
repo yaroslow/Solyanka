@@ -1,0 +1,36 @@
+name: Core.Solyanka.Cqrs
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  Nuget_Pack_and_Push:
+
+    runs-on: ubuntu-latest
+    env: 
+      PROJ: Solyanka.Cqrs.csproj
+      PROJ_DIR: src/Core/Solyanka.Cqrs/
+      NUGET: https://api.nuget.org/v3/index.json
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.PROJ_DIR }}${{ env.PROJ }}
+      
+    - name: Build
+      run: dotnet build ${{ env.PROJ_DIR }}${{ env.PROJ }} --no-restore -c Release
+      
+    - name: Pack
+      run: dotnet pack ${{ env.PROJ_DIR }}${{ env.PROJ }} --no-build -c Release
+      
+    - name: Push
+      run: dotnet nuget push ${{ env.PROJ_DIR }}bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate -s ${{ env.NUGET }}
