@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       PROJ_DIR: src/Core/Solyanka.Utils/
-      PROJ: ${{ env.PROJ_DIR }}/Solyanka.Utils.csproj
+      PROJ: src/Core/Solyanka.Utils/Solyanka.Utils.csproj
 
     steps:
     - uses: actions/checkout@v2
