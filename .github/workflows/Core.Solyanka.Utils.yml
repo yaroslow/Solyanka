@@ -1,4 +1,4 @@
-name: .NET
+name: Core.Solyanka.Utils
 
 on:
   push:
