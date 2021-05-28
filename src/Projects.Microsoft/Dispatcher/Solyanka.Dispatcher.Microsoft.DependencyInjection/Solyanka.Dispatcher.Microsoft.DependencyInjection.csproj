@@ -15,7 +15,7 @@
         <PackageId>Solyanka.Dispatcher.Microsoft.DependencyInjection</PackageId>
         <PackageTags>dispatcher;mediator;microsoft-di;solyanka;framework;cqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/yaroslow/Solyanka/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
         <SignAssembly>true</SignAssembly>
