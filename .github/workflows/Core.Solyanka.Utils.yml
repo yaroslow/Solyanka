@@ -7,7 +7,7 @@ on:
     branches: [ master ]
     
 jobs:
-  build:
+  Pack and Push to Nuget:
 
     runs-on: ubuntu-latest
     env: 
@@ -33,4 +33,4 @@ jobs:
       run: dotnet pack ${{ env.PROJ_DIR }}${{ env.PROJ }} --no-build -c Release
       
     - name: Push
-      run: dotnet nuget push ${{ env.PROJ_DIR }}/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate -s ${{ env.NUGET }}
+      run: dotnet nuget push ${{ env.PROJ_DIR }}bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate -s ${{ env.NUGET }}
