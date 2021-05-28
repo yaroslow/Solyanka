@@ -29,7 +29,7 @@ jobs:
       run: dotnet build ${{ env.PROJ }} --no-restore -c Release
       
     - name: Pack
-      run: dotnet pack ${{ env.PROJ }} --no-build
+      run: dotnet pack ${{ env.PROJ }} --no-build -c Release
       
     - name: Push
       run: dotnet nuget push ${{ env.PROJ_DIR }}/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate --no-symbols
