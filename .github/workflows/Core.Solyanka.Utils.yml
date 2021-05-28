@@ -7,7 +7,7 @@ on:
     branches: [ master ]
     
 jobs:
-  Pack&Push:
+  Nuget_Pack_and_Push:
 
     runs-on: ubuntu-latest
     env: 
