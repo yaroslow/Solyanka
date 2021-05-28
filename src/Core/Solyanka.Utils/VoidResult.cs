@@ -14,7 +14,7 @@ namespace Solyanka.Utils
         public static readonly VoidResult Value = new VoidResult();
 
         /// <summary>
-        /// <see cref="Task"/> из <see cref="VoidResult"/>
+        /// <see cref="Task"/> from <see cref="VoidResult"/>
         /// </summary>
         public static readonly Task<VoidResult> TaskValue = Task.FromResult(Value);
         
