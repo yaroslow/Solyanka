@@ -3,17 +3,17 @@ name: .NET
 on:
   push:
     branches: [ master ]
-    paths: .\src\Core\Solyanka.Utils\
+    paths: src\Core\Solyanka.Utils\
   pull_request:
     branches: [ master ]
-    paths: .\src\Core\Solyanka.Utils\
+    paths: src\Core\Solyanka.Utils\
     
 jobs:
   build:
 
     runs-on: ubuntu-latest
     env: 
-      PROJ_DIR: .\src\Core\Solyanka.Utils\
+      PROJ_DIR: src\Core\Solyanka.Utils\
       PROJ: ${{ env.PROJ_DIR }}\Solyanka.Utils.csproj
 
     steps:
