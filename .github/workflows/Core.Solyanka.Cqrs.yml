@@ -3,14 +3,8 @@ name: Core.Solyanka.Cqrs
 on:
   push:
     branches: [ master ]
-    paths:
-      - 'src/Core/Solyanka.Cqrs/**'
-      - 'src/Core/Solyanka.Utils/**'
   pull_request:
     branches: [ master ]
-    paths:
-      - 'src/Core/Solyanka.Cqrs/**'
-      - 'src/Core/Solyanka.Utils/**'
     
 jobs:
   Nuget_Pack_and_Push:
