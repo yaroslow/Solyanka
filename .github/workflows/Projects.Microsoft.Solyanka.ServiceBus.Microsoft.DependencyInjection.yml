@@ -1,4 +1,4 @@
-name: Solyanka.ServiceBus.Microsoft.DependencyInjection
+name: Projects.Microsoft.Solyanka.ServiceBus.Microsoft.DependencyInjection
 
 on:
   push:
