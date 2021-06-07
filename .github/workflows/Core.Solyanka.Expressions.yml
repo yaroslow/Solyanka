@@ -1,22 +1,22 @@
-name: Core.Solyanka.Utils
+name: Core.Solyanka.Expressions
 
 on:
   push:
     branches: [ master ]
     paths:
-      - 'src/Core/Solyanka.Utils/**'
+      - 'src/Core/Solyanka.Expressions/**'
   pull_request:
     branches: [ master ]
     paths:
-      - 'src/Core/Solyanka.Utils/**'
+      - 'src/Core/Solyanka.Expressions/**'
     
 jobs:
   Nuget_Pack_and_Push:
 
     runs-on: ubuntu-latest
     env: 
-      PROJ: Solyanka.Utils.csproj
-      PROJ_DIR: src/Core/Solyanka.Utils/
+      PROJ: Solyanka.Expressions.csproj
+      PROJ_DIR: src/Core/Solyanka.Expressions/
       NUGET: https://api.nuget.org/v3/index.json
 
     steps:

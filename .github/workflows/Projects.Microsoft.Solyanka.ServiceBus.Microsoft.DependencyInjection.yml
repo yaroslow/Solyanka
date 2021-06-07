@@ -1,13 +1,21 @@
-name: Core.Solyanka.Utils
+name: Solyanka.ServiceBus.Microsoft.DependencyInjection
 
 on:
   push:
     branches: [ master ]
     paths:
+      - 'src/Projects.Microsoft/ServiceBus/Solyanka.ServiceBus.Microsoft.DependencyInjection/**'
+      - 'src/Projects/ServiceBus/Solyanka.ServiceBus/**'
+      - 'src/Projects/ServiceBus/Solyanka.ServiceBus.Abstractions/**'
+      - 'src/Core/Solyanka.Cqrs/**'
       - 'src/Core/Solyanka.Utils/**'
   pull_request:
     branches: [ master ]
     paths:
+      - 'src/Projects.Microsoft/ServiceBus/Solyanka.ServiceBus.Microsoft.DependencyInjection/**'
+      - 'src/Projects/ServiceBus/Solyanka.ServiceBus/**'
+      - 'src/Projects/ServiceBus/Solyanka.ServiceBus.Abstractions/**'
+      - 'src/Core/Solyanka.Cqrs/**'
       - 'src/Core/Solyanka.Utils/**'
     
 jobs:
@@ -15,8 +23,8 @@ jobs:
 
     runs-on: ubuntu-latest
     env: 
-      PROJ: Solyanka.Utils.csproj
-      PROJ_DIR: src/Core/Solyanka.Utils/
+      PROJ: Solyanka.ServiceBus.Microsoft.DependencyInjection.csproj
+      PROJ_DIR: src/Projects.Microsoft/ServiceBus/Solyanka.ServiceBus.Microsoft.DependencyInjection/
       NUGET: https://api.nuget.org/v3/index.json
 
     steps:

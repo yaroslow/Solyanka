@@ -1,13 +1,17 @@
-name: Core.Solyanka.Utils
+name: Projects.Solyanka.ServiceBus.Abstractions
 
 on:
   push:
     branches: [ master ]
     paths:
+      - 'src/Projects/ServiceBus/Solyanka.ServiceBus.Abstractions/**'
+      - 'src/Core/Solyanka.Cqrs/**'
       - 'src/Core/Solyanka.Utils/**'
   pull_request:
     branches: [ master ]
     paths:
+      - 'src/Projects/ServiceBus/Solyanka.ServiceBus.Abstractions/**'
+      - 'src/Core/Solyanka.Cqrs/**'
       - 'src/Core/Solyanka.Utils/**'
     
 jobs:
@@ -15,8 +19,8 @@ jobs:
 
     runs-on: ubuntu-latest
     env: 
-      PROJ: Solyanka.Utils.csproj
-      PROJ_DIR: src/Core/Solyanka.Utils/
+      PROJ: Solyanka.ServiceBus.Abstractions.csproj
+      PROJ_DIR: src/Projects/ServiceBus/Solyanka.ServiceBus.Abstractions/
       NUGET: https://api.nuget.org/v3/index.json
 
     steps:
