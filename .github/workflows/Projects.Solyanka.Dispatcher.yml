@@ -4,15 +4,15 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'src/Projects/Solyanka.Dispatcher/**'
-      - 'src/Projects/Solyanka.Cqrs/**'
-      - 'src/Projects/Solyanka.Utils/**'
+      - 'src/Projects/Dispatcher/Solyanka.Dispatcher/**'
+      - 'src/Projects/Dispatcher/Solyanka.Cqrs/**'
+      - 'src/Projects/Dispatcher/Solyanka.Utils/**'
   pull_request:
     branches: [ master ]
     paths:
-      - 'src/Projects/Solyanka.Dispatcher/**'
-      - 'src/Projects/Solyanka.Cqrs/**'
-      - 'src/Projects/Solyanka.Utils/**'
+      - 'src/Projects/Dispatcher/Solyanka.Dispatcher/**'
+      - 'src/Projects/Dispatcher/Solyanka.Cqrs/**'
+      - 'src/Projects/Dispatcher/Solyanka.Utils/**'
     
 jobs:
   Nuget_Pack_and_Push:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       PROJ: Solyanka.Dispatcher.csproj
-      PROJ_DIR: src/Projects/Solyanka.Dispatcher/
+      PROJ_DIR: src/Projects/Dispatcher/Solyanka.Dispatcher/
       NUGET: https://api.nuget.org/v3/index.json
 
     steps:
