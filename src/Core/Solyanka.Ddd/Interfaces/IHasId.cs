@@ -20,7 +20,7 @@ namespace Solyanka.Ddd.Interfaces
     public interface IHasId<out TId> : IHasId where TId : IEquatable<TId>
     {
         /// <summary>
-        /// Identificator of type <see cref="TId"/>
+        /// Identificator of specified type
         /// </summary>
         new TId Id { get; }
     }
