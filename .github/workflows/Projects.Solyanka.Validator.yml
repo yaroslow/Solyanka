@@ -5,12 +5,12 @@ on:
     branches: [ master ]
     paths:
       - 'src/Projects/Validator/Solyanka.Validator/**'
-      - 'src/Projects/Core/Solyanka.Expressions/**'
+      - 'src/Core/Solyanka.Expressions/**'
   pull_request:
     branches: [ master ]
     paths:
       - 'src/Projects/Validator/Solyanka.Validator/**'
-      - 'src/Projects/Core/Solyanka.Expressions/**'
+      - 'src/Core/Solyanka.Expressions/**'
     
 jobs:
   Nuget_Pack_and_Push:
