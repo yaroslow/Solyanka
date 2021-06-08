@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.0</Version>
+        <Version>5.0.1</Version>
         <Description>Dispatcher building pipelines and handling queries, commands and events</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
@@ -15,12 +15,17 @@
         <PackageId>Solyanka.Dispatcher</PackageId>
         <PackageTags>dispatcher;mediator;queries;commands;events;handlers;pipelines;solyanka;framework;sqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
+        <PackageIcon>Solyanka_128x128.png</PackageIcon>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\..\logo\Solyanka_128x128.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
     
     <ItemGroup>
       <ProjectReference Include="..\..\..\Core\Solyanka.Cqrs\Solyanka.Cqrs.csproj" />

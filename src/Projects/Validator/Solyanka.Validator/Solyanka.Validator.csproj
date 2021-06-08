@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.0</Version>
+        <Version>5.0.1</Version>
         <Description>Mechanism to validate models and their properties</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
@@ -15,11 +15,16 @@
         <PackageTags>validator;validation;solyanka;framework;sqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageIcon>Solyanka_128x128.png</PackageIcon>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\..\logo\Solyanka_128x128.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Core\Solyanka.Expressions\Solyanka.Expressions.csproj" />

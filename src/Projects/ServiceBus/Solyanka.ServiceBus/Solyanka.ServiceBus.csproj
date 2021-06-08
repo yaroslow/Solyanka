@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.0</Version>
+        <Version>5.0.1</Version>
         <Description>Service bus transfering integration events or other objects</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
@@ -16,11 +16,16 @@
         <PackageTags>integration-events;service-bus;solyanka;framework;sqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageIcon>Solyanka_128x128.png</PackageIcon>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\..\..\logo\Solyanka_128x128.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Solyanka.ServiceBus.Abstractions\Solyanka.ServiceBus.Abstractions.csproj" />
