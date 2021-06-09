@@ -1,4 +1,4 @@
-Solyanka
+![Solyanka](https://github.com/yaroslow/Solyanka/blob/master/logo/Solyanka_128x128.png)         Solyanka 
 ===
 
 This project was started owing to (big thanks to):
