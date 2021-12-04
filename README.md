@@ -38,6 +38,5 @@ Solyanka is a simple CQS/CQRS framework, supporting:
 
 ### In mind
 - Update documentation
-- Validation with attributes
 - Logging
 - Errors handling
