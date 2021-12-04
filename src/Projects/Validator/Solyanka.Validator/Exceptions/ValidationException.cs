@@ -10,23 +10,13 @@ namespace Solyanka.Validator.Exceptions
     public sealed class ValidationException : Exception
     {
         /// <inheritdoc />
-        public override string Source { get; set; }
-
-
-        /// <inheritdoc />
         public ValidationException() {}
 
         /// <inheritdoc />
-        public ValidationException(string message, string source) : base(message)
-        {
-            Source = source;
-        }
+        public ValidationException(string message) : base(message) {}
 
         /// <inheritdoc />
-        public ValidationException(string message, string source, Exception inner) : base(message, inner)
-        {
-            Source = source;
-        }
+        public ValidationException(string message, Exception inner) : base(message, inner) {}
 
         private ValidationException(SerializationInfo info, StreamingContext context) : base(info, context) {}
     }

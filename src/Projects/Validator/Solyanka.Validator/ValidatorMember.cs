@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using Solyanka.Expressions;
 
@@ -44,6 +45,29 @@ namespace Solyanka.Validator
         public ValidatorMember<TModel, TMember> Constrain(Expression<Func<TMember, bool>> constraint, string validationExceptionMessage)
         {
             _validator.Constrain(_member.Compose(constraint), validationExceptionMessage);
+            return this;
+        }
+        
+        /// <summary>
+        /// Impose restrictions on member to validate by attributes
+        /// </summary>
+        /// <returns><see cref="ValidatorMember{TModel, TMember}"/></returns>
+        public ValidatorMember<TModel, TMember> ConstrainAttributes()
+        {
+            var type = typeof(TMember);
+            var properties = type.GetProperties();
+
+            foreach (var property in properties)
+            {
+                var attributes = property.GetCustomAttributes(typeof(ValidationAttribute), true);
+
+                foreach (var attribute in attributes)
+                {
+                    var castedAttribute = (ValidationAttribute) attribute;
+                    Constrain((value) => castedAttribute.IsValid(property.GetValue(value)), castedAttribute.ErrorMessage);
+                }
+            }
+
             return this;
         }
 

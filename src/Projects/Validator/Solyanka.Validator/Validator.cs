@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using Solyanka.Expressions;
 using Solyanka.Validator.Results;
@@ -108,6 +109,29 @@ namespace Solyanka.Validator
                 return this;
             throw new InvalidOperationException("Constraint could not be add");
         }
+        
+        /// <summary>
+        /// Impose restrictions on member to validate by attributes
+        /// </summary>
+        /// <returns><see cref="Validator{TModel}"/></returns>
+        public Validator<TModel> ConstrainAttributes()
+        {
+            var type = typeof(TModel);
+            var properties = type.GetProperties();
+
+            foreach (var property in properties)
+            {
+                var attributes = property.GetCustomAttributes(typeof(ValidationAttribute), true);
+
+                foreach (var attribute in attributes)
+                {
+                    var castedAttribute = (ValidationAttribute) attribute;
+                    Constrain((value) => castedAttribute.IsValid(property.GetValue(value)), castedAttribute.ErrorMessage);
+                }
+            }
+
+            return this;
+        }
 
         /// <summary>
         /// Validate model
@@ -121,8 +145,7 @@ namespace Solyanka.Validator
             {
                 if (!func.Invoke(model))
                 {
-                    //TODO: source
-                    errors.Add(new ValidationError<TModel>(expression, "source", errorMessage));
+                    errors.Add(new ValidationError<TModel>(expression, errorMessage));
                 }
             }
 

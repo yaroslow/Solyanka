@@ -13,12 +13,7 @@ namespace Solyanka.Validator.Results
         /// Validation constraint that caused validation error
         /// </summary>
         public Expression<Func<TModel, bool>> ValidationConstraint { get; }
-        
-        /// <summary>
-        /// Source (model or member) of validation error
-        /// </summary>
-        public string Source { get; }
-        
+
         /// <summary>
         /// Error message
         /// </summary>
@@ -26,10 +21,9 @@ namespace Solyanka.Validator.Results
         
         
         /// <summary/>
-        public ValidationError(Expression<Func<TModel, bool>> validationConstraint, string source, string errorMessage)
+        public ValidationError(Expression<Func<TModel, bool>> validationConstraint, string errorMessage)
         {
             ValidationConstraint = validationConstraint;
-            Source = source;
             ErrorMessage = errorMessage;
         }
     }

@@ -39,7 +39,7 @@ namespace Solyanka.Validator.Results
             if(error == null)
                 return;
 
-            throw new ValidationException(error.ErrorMessage, error.Source);
+            throw new ValidationException(error.ErrorMessage);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Solyanka.Validator.Results
             if(Success)
                 return;
 
-            var exceptions = Errors.Select(error => new ValidationException(error.ErrorMessage, error.Source));
+            var exceptions = Errors.Select(error => new ValidationException(error.ErrorMessage));
             throw new AggregateException(exceptions);
         }
     }
