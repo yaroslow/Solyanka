@@ -20,7 +20,7 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
         <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
+        <AssemblyOriginatorKeyFile>..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
 
     <ItemGroup>

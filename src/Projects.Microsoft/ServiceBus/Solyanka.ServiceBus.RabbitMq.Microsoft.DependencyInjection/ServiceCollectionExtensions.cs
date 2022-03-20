@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using GreenPipes;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Solyanka.ServiceBus.Abstractions;
@@ -40,7 +41,6 @@ namespace Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection
 
                         cfg.ReceiveEndpoint(configuration.ServiceEndpointName, config =>
                         {
-
                             config.Durable = true;
                             config.PrefetchCount = configuration.PrefetchCount;
                             config.UseMessageRetry(x =>
