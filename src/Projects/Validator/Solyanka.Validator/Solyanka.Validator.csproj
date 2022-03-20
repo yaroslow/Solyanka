@@ -6,13 +6,13 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.2</Version>
+        <Version>5.0.3</Version>
         <Description>Mechanism to validate models and their properties</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.Validator</AssemblyName>
         <PackageId>Solyanka.Validator</PackageId>
-        <PackageTags>validator;validation;solyanka;framework;sqrs</PackageTags>
+        <PackageTags>validator;validation;solyanka;framework</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <PackageIcon>Solyanka_128x128.png</PackageIcon>
@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\Solyanka.Exceptions\Solyanka.Exceptions.csproj" />
       <ProjectReference Include="..\..\..\Core\Solyanka.Expressions\Solyanka.Expressions.csproj" />
     </ItemGroup>
 

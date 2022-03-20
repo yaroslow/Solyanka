@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.1</Version> 
+        <Version>5.0.2</Version> 
         <Description>Abstractions for DDD</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
@@ -25,6 +25,10 @@
 
     <ItemGroup>
         <None Include="..\..\..\logo\Solyanka_128x128.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Solyanka.Exceptions\Solyanka.Exceptions.csproj" />
     </ItemGroup>
 
 </Project>

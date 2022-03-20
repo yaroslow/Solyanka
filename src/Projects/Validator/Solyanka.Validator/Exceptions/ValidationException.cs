@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using Solyanka.Exceptions.Exceptions;
 
 namespace Solyanka.Validator.Exceptions
 {
@@ -7,17 +8,28 @@ namespace Solyanka.Validator.Exceptions
     /// Exception of validation
     /// </summary>
     [Serializable]
-    public sealed class ValidationException : Exception
+    public class ValidationException : ControllableException
     {
         /// <inheritdoc />
-        public ValidationException() {}
-
+        protected ValidationException() {}
+        
         /// <inheritdoc />
         public ValidationException(string message) : base(message) {}
 
         /// <inheritdoc />
-        public ValidationException(string message, Exception inner) : base(message, inner) {}
+        public ValidationException(string message, string source = null) : this(message)
+        {
+            Source = source;
+        }
 
-        private ValidationException(SerializationInfo info, StreamingContext context) : base(info, context) {}
+        /// <inheritdoc />
+        public ValidationException(string message, string source, string code, string subCode) : this(message, source)
+        {
+            Code = code;
+            SubCode = subCode;
+        }
+        
+        /// <inheritdoc />
+        protected ValidationException(SerializationInfo info, StreamingContext context) : base(info, context) {}
     }
 }

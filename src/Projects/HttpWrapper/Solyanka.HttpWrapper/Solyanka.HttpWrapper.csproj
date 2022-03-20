@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
@@ -7,16 +7,16 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.1</Version>
-        <Description>Dispatcher building pipelines and handling queries, commands and events</Description>
+        <Version>5.0.0</Version>
+        <Description>Wrapper over http clients</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
-        <AssemblyName>Solyanka.Dispatcher</AssemblyName>
-        <PackageId>Solyanka.Dispatcher</PackageId>
-        <PackageTags>dispatcher;mediator;queries;commands;events;handlers;pipelines;solyanka;framework;cqrs</PackageTags>
+        <AssemblyName>Solyanka.HttpWrapper</AssemblyName>
+        <PackageId>Solyanka.HttpWrapper</PackageId>
+        <PackageTags>http;httpclient;solyanka;framework</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
-        <PackageIcon>Solyanka_128x128.png</PackageIcon>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageIcon>Solyanka_128x128.png</PackageIcon>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
         <SignAssembly>true</SignAssembly>
@@ -26,9 +26,15 @@
     <ItemGroup>
         <None Include="..\..\..\..\logo\Solyanka_128x128.png" Pack="true" PackagePath="\" />
     </ItemGroup>
-    
+
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Core\Solyanka.Cqrs\Solyanka.Cqrs.csproj" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="Polly" Version="7.2.3" />
+      <PackageReference Include="Polly.Caching.Distributed" Version="3.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Core\Solyanka.Exceptions\Solyanka.Exceptions.csproj" />
     </ItemGroup>
 
 </Project>

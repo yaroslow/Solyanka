@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using Solyanka.Exceptions.Exceptions;
 
 namespace Solyanka.Ddd.Exceptions
 {
@@ -7,18 +8,15 @@ namespace Solyanka.Ddd.Exceptions
     /// Exception in domain logic
     /// </summary>
     [Serializable]
-    public class DomainException : Exception
+    public class DomainException : LogicalException
     {
         /// <inheritdoc />
-        public DomainException() {}
+        protected DomainException() {}
 
         /// <inheritdoc />
-        public DomainException(string message) : base(message) {}
+        public DomainException(string message, string code = null, string subCode = null) : base(message, code, subCode) {}
 
         /// <inheritdoc />
         public DomainException(string message, Exception inner) : base(message, inner) {}
-
-        /// <inheritdoc />
-        protected DomainException(SerializationInfo info, StreamingContext context) : base(info, context) {}
     }
 }

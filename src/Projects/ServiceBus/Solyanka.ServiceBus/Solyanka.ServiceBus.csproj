@@ -7,13 +7,13 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.1</Version>
+        <Version>5.0.2</Version>
         <Description>Service bus transfering integration events or other objects</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
         <AssemblyName>Solyanka.ServiceBus</AssemblyName>
         <PackageId>Solyanka.ServiceBus</PackageId>
-        <PackageTags>integration-events;service-bus;solyanka;framework;sqrs</PackageTags>
+        <PackageTags>integration-events;service-bus;solyanka;framework;cqrs</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <PackageIcon>Solyanka_128x128.png</PackageIcon>

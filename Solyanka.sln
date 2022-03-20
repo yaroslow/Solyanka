@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Cqrs", "src\Core\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Ddd", "src\Core\Solyanka.Ddd\Solyanka.Ddd.csproj", "{5CD4B99F-2982-4C07-BCAB-211150763EF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Exceptions", "src\Core\Solyanka.Exceptions\Solyanka.Exceptions.csproj", "{CE19573F-1D02-400C-A37F-99C33DE1F24E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Expressions", "src\Core\Solyanka.Expressions\Solyanka.Expressions.csproj", "{47E38B87-BE79-4967-992D-B0B94C22E62E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Utils", "src\Core\Solyanka.Utils\Solyanka.Utils.csproj", "{A2E4B8CA-5DEC-4C93-9086-6C160DB2E16C}"
@@ -20,6 +22,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dispatcher", "Dispatcher", "{B504E04D-25DA-435F-B165-623A89A11147}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Dispatcher", "src\Projects\Dispatcher\Solyanka.Dispatcher\Solyanka.Dispatcher.csproj", "{738166B8-2CE4-4F37-A6F1-D2F8575E8A70}"
+EndProject
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.HttpWrapper", "src\Projects\HttpWrapper\Solyanka.HttpWrapper\Solyanka.HttpWrapper.csproj", "{E9177E29-ED53-4519-8746-9210CD4BE285}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HttpWrapper", "HttpWrapper", "{F12D1110-68C3-43A8-9A2B-2F5D4208F56F}"
 EndProject
 
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceBus", "ServiceBus", "{D55FA0C3-C853-418C-9092-0E714C1C22B8}"
@@ -48,6 +55,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.ServiceBus.Microsoft.DependencyInjection", "src\Projects.Microsoft\ServiceBus\Solyanka.ServiceBus.Microsoft.DependencyInjection\Solyanka.ServiceBus.Microsoft.DependencyInjection.csproj", "{7E75102D-D46C-4AFD-B2B9-C02865C0564E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection", "src\Projects.Microsoft\ServiceBus\Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection\Solyanka.ServiceBus.RabbitMq.Microsoft.DependencyInjection.csproj", "{10D3641F-949B-4A87-B649-74DAEADDB35F}"
+EndProject
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solyanka.Exceptions.Microsoft.DependencyInjection", "src\Projects.Microsoft\Solyanka.Exceptions.Microsoft.DependencyInjection\Solyanka.Exceptions.Microsoft.DependencyInjection.csproj", "{23CFF296-3765-4CFB-A03B-05F669E51FAD}"
 EndProject
 
 
@@ -106,6 +116,18 @@ Global
 		{47E38B87-BE79-4967-992D-B0B94C22E62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E38B87-BE79-4967-992D-B0B94C22E62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E38B87-BE79-4967-992D-B0B94C22E62E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE19573F-1D02-400C-A37F-99C33DE1F24E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE19573F-1D02-400C-A37F-99C33DE1F24E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE19573F-1D02-400C-A37F-99C33DE1F24E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE19573F-1D02-400C-A37F-99C33DE1F24E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23CFF296-3765-4CFB-A03B-05F669E51FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23CFF296-3765-4CFB-A03B-05F669E51FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23CFF296-3765-4CFB-A03B-05F669E51FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23CFF296-3765-4CFB-A03B-05F669E51FAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9177E29-ED53-4519-8746-9210CD4BE285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9177E29-ED53-4519-8746-9210CD4BE285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9177E29-ED53-4519-8746-9210CD4BE285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9177E29-ED53-4519-8746-9210CD4BE285}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1A090EC4-D9F7-43E4-A844-B2F55F68BC9C} = {FC639D71-E061-456B-94F5-200FC3525E8C}
@@ -125,5 +147,9 @@ Global
 		{BD996F8F-E364-4CE7-9B99-8339369A41C6} = {AA78C78F-6515-4710-8C30-E99E2C7D659A}
 		{5CD4B99F-2982-4C07-BCAB-211150763EF4} = {AC95423B-2F54-4E91-A383-C56C55318572}
 		{47E38B87-BE79-4967-992D-B0B94C22E62E} = {AC95423B-2F54-4E91-A383-C56C55318572}
+		{CE19573F-1D02-400C-A37F-99C33DE1F24E} = {AC95423B-2F54-4E91-A383-C56C55318572}
+		{F12D1110-68C3-43A8-9A2B-2F5D4208F56F} = {46842532-2E47-4690-B5A4-FBE2CC4CB992}
+		{E9177E29-ED53-4519-8746-9210CD4BE285} = {F12D1110-68C3-43A8-9A2B-2F5D4208F56F}
+		{23CFF296-3765-4CFB-A03B-05F669E51FAD} = {13D558B9-E87E-4192-BFC8-5ED6D458E651}
 	EndGlobalSection
 EndGlobal

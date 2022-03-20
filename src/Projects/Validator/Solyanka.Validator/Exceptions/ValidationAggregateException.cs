@@ -1,25 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Solyanka.Exceptions.Exceptions;
 
 namespace Solyanka.Validator.Exceptions
 {
     /// <summary>
     /// Aggregated exception of validation
     /// </summary>
-    public class ValidationAggregateException : AggregateException
+    [Serializable]
+    public class ValidationAggregateException : ControllableException
     {
-        /// <inheritdoc />
-        public ValidationAggregateException() {}
+        /// <summary>
+        /// List of validation exception
+        /// </summary>
+        public List<ValidationException> ValidationExceptions { get; }
+
 
         /// <inheritdoc />
-        public ValidationAggregateException(string message) : base(message) {}
+        protected ValidationAggregateException()
+        {
+            ValidationExceptions = new List<ValidationException>();
+        }
 
         /// <inheritdoc />
-        public ValidationAggregateException(string message, ValidationException innerValidationException) : 
-            base(message, innerValidationException) {}
+        public ValidationAggregateException(string message, IEnumerable<ValidationException> validationExceptions) : base(message)
+        {
+            ValidationExceptions = validationExceptions.ToList();
+        }
+
 
         /// <inheritdoc />
-        public ValidationAggregateException(string message, IEnumerable<ValidationException> innerValidationExceptions) : 
-            base(message, innerValidationExceptions) {}
+        public override string ToString()
+        {
+            var stringBuilder = new StringBuilder(base.ToString());
+            stringBuilder.Append(Environment.NewLine);
+            foreach (var validationException in ValidationExceptions)
+            {
+                stringBuilder.Append(validationException);
+            }
+
+            return stringBuilder.ToString();
+        }
     }
 }

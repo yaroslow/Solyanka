@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
@@ -7,28 +7,24 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.1</Version>
-        <Description>Abstractions to build integration service bus to transfer integration events or other objects</Description>
+        <Version>5.0.0</Version>
+        <Description>Exceptions ierarchy</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
-        <AssemblyName>Solyanka.ServiceBus.Abstractions</AssemblyName>
-        <PackageId>Solyanka.ServiceBus.Abstractions</PackageId>
-        <PackageTags>integration-events;service-bus;solyanka;framework;cqrs</PackageTags>
+        <AssemblyName>Solyanka.Exceptions</AssemblyName>
+        <PackageId>Solyanka.Exceptions</PackageId>
+        <PackageTags>framework;exceptions</PackageTags>
         <PackageProjectUrl>https://github.com/yaroslow/Solyanka</PackageProjectUrl>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <PackageIcon>Solyanka_128x128.png</PackageIcon>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/yaroslow/Solyanka</RepositoryUrl>
         <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>..\..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
+        <AssemblyOriginatorKeyFile>..\..\..\Solyanka.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\..\..\..\logo\Solyanka_128x128.png" Pack="true" PackagePath="\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\Core\Solyanka.Cqrs\Solyanka.Cqrs.csproj" />
+        <None Include="..\..\..\logo\Solyanka_128x128.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
