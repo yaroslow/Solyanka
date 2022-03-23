@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.1</Version>
+        <Version>5.0.2</Version>
         <Description>Dispatcher building pipelines and handling queries, commands and events</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>

@@ -5,6 +5,7 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Solyanka.Cqrs;
 using Solyanka.Cqrs.CrossCuttingConcerns;
+using Solyanka.Cqrs.Events;
 using Solyanka.Cqrs.Handlers;
 using Solyanka.Utils;
 
@@ -61,22 +62,23 @@ namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
         /// Configure query pipeline
         /// </summary>
         /// <param name="services"><see cref="IServiceCollection"/></param>
-        /// <param name="queryPipelineUnitsSetup">Query pipeline units</param>
+        /// <param name="queryCrossCuttingConcernSetup">Query cross-cutting concerns</param>
         /// <returns><see cref="IServiceCollection"/></returns>
         public static IServiceCollection ConfigureQueryPipeline(this IServiceCollection services,
-            Action<IList<Type>> queryPipelineUnitsSetup)
+            Action<IList<Type>> queryCrossCuttingConcernSetup)
         {
-            var queryPipelineUnits = new List<Type>();
-            queryPipelineUnitsSetup.Invoke(queryPipelineUnits);
+            var queryCrossCuttingConcerns = new List<Type>();
+            queryCrossCuttingConcernSetup.Invoke(queryCrossCuttingConcerns);
             
-            foreach (var queryPipelineUnit in queryPipelineUnits)
+            foreach (var queryCrossCuttingConcern in queryCrossCuttingConcerns)
             {
-                if (!(queryPipelineUnit.IsClass && queryPipelineUnit.GetInterfaces().Any(i =>
+                if (!(queryCrossCuttingConcern.IsClass && queryCrossCuttingConcern.GetInterfaces().Any(i =>
                           i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQueryCrossCuttingConcern<,>))))
                     throw new InvalidOperationException(
-                        $"It is impossible to correlate type of {queryPipelineUnit} with type {typeof(IQueryCrossCuttingConcern<,>)}");
+                        $"It is impossible to correlate type of {queryCrossCuttingConcern} " +
+                        $"with type {typeof(IQueryCrossCuttingConcern<,>)}");
 
-                services.AddScoped(typeof(IQueryCrossCuttingConcern<,>), queryPipelineUnit);
+                services.AddScoped(typeof(IQueryCrossCuttingConcern<,>), queryCrossCuttingConcern);
             }
 
             return services;
@@ -86,22 +88,23 @@ namespace Solyanka.Dispatcher.Microsoft.DependencyInjection
         /// Configure command pipeline
         /// </summary>
         /// <param name="services"><see cref="IServiceCollection"/></param>
-        /// <param name="commandPipelineUnitsSetup">Command pipeline units</param>
+        /// <param name="commandCrossCuttingConcernSetup">Command cross-cutting concerns</param>
         /// <returns><see cref="IServiceCollection"/></returns>
         public static IServiceCollection ConfigureCommandPipeline(this IServiceCollection services,
-            Action<IList<Type>> commandPipelineUnitsSetup)
+            Action<IList<Type>> commandCrossCuttingConcernSetup)
         {
-            var commandPipelineUnits = new List<Type>();
-            commandPipelineUnitsSetup.Invoke(commandPipelineUnits);
+            var commandCrossCuttingConcerns = new List<Type>();
+            commandCrossCuttingConcernSetup.Invoke(commandCrossCuttingConcerns);
 
-            foreach (var commandPipelineUnit in commandPipelineUnits)
+            foreach (var commandCrossCuttingConcern in commandCrossCuttingConcerns)
             {
-                if (!(commandPipelineUnit.IsClass && commandPipelineUnit.GetInterfaces().Any(i =>
+                if (!(commandCrossCuttingConcern.IsClass && commandCrossCuttingConcern.GetInterfaces().Any(i =>
                           i.IsGenericType && i.GetGenericTypeDefinition() == typeof(ICommandCrossCuttingConcern<,>))))
                     throw new InvalidOperationException(
-                        $"It is impossible to correlate type of {commandPipelineUnit} with type {typeof(ICommandCrossCuttingConcern<,>)}");
+                        $"It is impossible to correlate type of {commandCrossCuttingConcern} " +
+                        $"with type {typeof(ICommandCrossCuttingConcern<,>)}");
 
-                services.AddScoped(typeof(ICommandCrossCuttingConcern<,>), commandPipelineUnit);
+                services.AddScoped(typeof(ICommandCrossCuttingConcern<,>), commandCrossCuttingConcern);
             }
 
             return services;

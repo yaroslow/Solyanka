@@ -9,6 +9,21 @@ namespace Solyanka.Ddd.Entity
     /// <typeparam name="TId">Identificator type</typeparam>
     public abstract class EntityBase<TId> : IHasId<TId> where TId: IEquatable<TId>
     {
+        /// <summary>
+        /// Protected default constructor
+        /// </summary>
+        protected EntityBase() {}
+
+        /// <summary>
+        /// Constructor of <see cref="EntityBase{TId}"/>
+        /// </summary>
+        /// <param name="id">Identificator</param>
+        public EntityBase(TId id)
+        {
+            Id = id;
+        }
+
+
         object IHasId.Id => Id;
 
         /// <inheritdoc />

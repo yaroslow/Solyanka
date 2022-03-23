@@ -1,22 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Solyanka.Cqrs.Requests;
 
-namespace Solyanka.Cqrs
+namespace Solyanka.Cqrs.Events
 {
     /// <summary>
-    /// Store of <see cref="IEvent"/>
+    /// Container of <see cref="IEvent"/> that can be raised
     /// </summary>
-    public interface IEventStore
+    public interface IEventRaisable
     {
         /// <summary>
-        /// Collection of events
-        /// </summary>
-        ICollection<IEvent> Events { get; }
-
-        /// <summary>
-        /// Raise all <see cref="IEvent"/> in store
+        /// Raise all <see cref="IEvent"/> in container
         /// </summary>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
         /// <returns><see cref="Task"/></returns>

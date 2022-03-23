@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>5.0.2</Version> 
+        <Version>5.0.3</Version> 
         <Description>Abstractions for DDD</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>
@@ -28,6 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Solyanka.Cqrs\Solyanka.Cqrs.csproj" />
       <ProjectReference Include="..\Solyanka.Exceptions\Solyanka.Exceptions.csproj" />
     </ItemGroup>
 

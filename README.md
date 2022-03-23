@@ -7,18 +7,17 @@ This project was started owing to (big thanks to):
 
 ### Description:
 Solyanka is a simple CQS/CQRS framework, supporting:
-  - commands, queries, handlers and pipelines;
-  - events (domain, application, integration) handling;
+  - commands, queries, handlers and cross-cutting concerns;
+  - events (domain and integration) handling;
   - sending integration events over service bus
   - validating models
   - sending http requests over policies
 
 ### Documentation:
-  - WILL BE UPDATED
   - [Handling queries, commands and events](https://github.com/yaroslow/Solyanka/blob/master/docs/1.%20Handling%20queries%2C%20commands%20and%20events.md)
-  - [Building queries and commands pipelines](https://github.com/yaroslow/Solyanka/blob/master/docs/2.%20Building%20queries%20and%20commands%20pipelines.md)
-  - [Using IEventContainer to handle events](https://github.com/yaroslow/Solyanka/blob/master/docs/3.%20Using%20IEventContainer%20to%20handle%20events.md)
-  - [Using IServiceBus to push events to another app](https://github.com/yaroslow/Solyanka/blob/master/docs/4.%20Using%20IServiceBus%20to%20push%20events%20to%20another%20app.md)
+  - [Building query and command cross-cutting concerns](https://github.com/yaroslow/Solyanka/blob/master/docs/2.%20Building%20query%20and%20command%20cross-cutting%20concerns.md)
+  - [Using IEventStore to handle events](https://github.com/yaroslow/Solyanka/blob/master/docs/3.%20Using%IEventStore%20to%20handle%20events.md)
+  - [Using IServiceBus to push events across the services](https://github.com/yaroslow/Solyanka/blob/master/docs/4.%20Using%20IServiceBus%20to%20push%20events%20across%20the%20services.md)
 
 ### Packages:
 
@@ -32,7 +31,7 @@ Solyanka is a simple CQS/CQRS framework, supporting:
   | Solyanka.Utils                                                        | [![Build status](https://github.com/yaroslow/Solyanka/actions/workflows/Core.Solyanka.Utils.yml/badge.svg)](https://github.com/yaroslow/Solyanka/actions/workflows/Core.Solyanka.Utils.yml) [![NuGet](https://img.shields.io/nuget/dt/Solyanka.Utils)](https://www.nuget.org/packages/Solyanka.Utils) [![NuGet](https://img.shields.io/nuget/v/Solyanka.Utils)](https://www.nuget.org/packages/Solyanka.Utils) |
   |                               `Projects`                              |  |
   | Solyanka.Dispatcher                                                   | [![Build status](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.Dispatcher.yml/badge.svg)](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.Dispatcher.yml) [![NuGet](https://img.shields.io/nuget/dt/Solyanka.Dispatcher)](https://www.nuget.org/packages/Solyanka.Dispatcher) [![NuGet](https://img.shields.io/nuget/v/Solyanka.Dispatcher)](https://www.nuget.org/packages/Solyanka.Dispatcher) |
-  | Solyanka.HttpWrapper                                                   | [![Build status](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.HttpWrapper.yml/badge.svg)](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.Dispatcher.yml) [![NuGet](https://img.shields.io/nuget/dt/Solyanka.Dispatcher)](https://www.nuget.org/packages/Solyanka.HttpWrapper) [![NuGet](https://img.shields.io/nuget/v/Solyanka.HttpWrapper)](https://www.nuget.org/packages/Solyanka.HttpWrapper) |
+  | Solyanka.HttpWrapper                                                   | [![Build status](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.HttpWrapper.yml/badge.svg)](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.HttpWrapper.yml) [![NuGet](https://img.shields.io/nuget/dt/Solyanka.Dispatcher)](https://www.nuget.org/packages/Solyanka.HttpWrapper) [![NuGet](https://img.shields.io/nuget/v/Solyanka.HttpWrapper)](https://www.nuget.org/packages/Solyanka.HttpWrapper) |
   | Solyanka.ServiceBus                                                   | [![Build status](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.ServiceBus.yml/badge.svg)](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.ServiceBus.yml) [![NuGet](https://img.shields.io/nuget/dt/Solyanka.ServiceBus)](https://www.nuget.org/packages/Solyanka.ServiceBus) [![NuGet](https://img.shields.io/nuget/v/Solyanka.ServiceBus)](https://www.nuget.org/packages/Solyanka.ServiceBus) |
   | Solyanka.ServiceBus.Abstractions                                      | [![Build status](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.ServiceBus.Abstractions.yml/badge.svg)](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.ServiceBus.Abstractions.yml) [![NuGet](https://img.shields.io/nuget/dt/Solyanka.ServiceBus.Abstractions)](https://www.nuget.org/packages/Solyanka.ServiceBus.Abstractions) [![NuGet](https://img.shields.io/nuget/v/Solyanka.ServiceBus.Abstractions)](https://www.nuget.org/packages/Solyanka.ServiceBus.Abstractions) |
   | Solyanka.Validator                                                    | [![Build status](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.Validator.yml/badge.svg)](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Solyanka.Validator.yml) [![NuGet](https://img.shields.io/nuget/dt/Solyanka.Validator)](https://www.nuget.org/packages/Solyanka.Validator) [![NuGet](https://img.shields.io/nuget/v/Solyanka.ServiceBus.Abstractions)](https://www.nuget.org/packages/Solyanka.ServiceBus.Abstractions) |
