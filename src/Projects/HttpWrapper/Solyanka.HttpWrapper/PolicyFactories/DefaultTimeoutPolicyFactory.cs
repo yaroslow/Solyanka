@@ -7,7 +7,7 @@ using Solyanka.HttpWrapper.Abstractions;
 namespace Solyanka.HttpWrapper.PolicyFactories
 {
     /// <inheritdoc />
-    public class DefaultHttpRequestTimeoutPolicy : IHttpRequestTimeoutPolicy
+    public class DefaultTimeoutPolicyFactory : ITimeoutPolicyFactory
     {
         /// <summary>
         /// Default timeout if not specified
@@ -32,12 +32,12 @@ namespace Solyanka.HttpWrapper.PolicyFactories
 
 
         /// <summary>
-        /// Constructor of <see cref="DefaultHttpRequestTimeoutPolicy"/>
+        /// Constructor of <see cref="DefaultTimeoutPolicyFactory"/>
         /// </summary>
         /// <param name="timeout">Timeout</param>
         /// <param name="strategy"><see cref="TimeoutStrategy"/></param>
         /// <param name="callback">Callback on timeout</param>
-        public DefaultHttpRequestTimeoutPolicy(TimeSpan? timeout = null,
+        public DefaultTimeoutPolicyFactory(TimeSpan? timeout = null,
             TimeoutStrategy strategy = TimeoutStrategy.Pessimistic, 
             Func<Context, TimeSpan, Task, Exception, Task> callback = null)
         {
@@ -57,8 +57,8 @@ namespace Solyanka.HttpWrapper.PolicyFactories
 
 
         /// <summary>
-        /// Default <see cref="DefaultHttpRequestTimeoutPolicy"/>
+        /// Default <see cref="DefaultTimeoutPolicyFactory"/>
         /// </summary>
-        public static DefaultHttpRequestTimeoutPolicy Default => new();
+        public static DefaultTimeoutPolicyFactory Default => new();
     }
 }

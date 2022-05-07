@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Solyanka.Cqrs;
 using Solyanka.Cqrs.Pipelines;
 using Solyanka.Cqrs.Requests;
-using Solyanka.Dispatcher.Cqrs;
+using Solyanka.Dispatcher.Pipelines;
 using Solyanka.Utils;
 
 namespace Solyanka.Dispatcher

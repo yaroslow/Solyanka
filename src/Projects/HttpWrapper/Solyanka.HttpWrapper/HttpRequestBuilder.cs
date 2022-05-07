@@ -13,10 +13,10 @@ namespace Solyanka.HttpWrapper
     /// </summary>
     public class HttpRequestBuilder
     {
-        internal List<IAsyncPolicy> Policies { get; }
-        internal Func<Exception, Task> OnException { get; set; }
-        internal Func<object, Task> PutInCache { get; set; }
-        internal Func<Task<object>> GetFromCache { get; set; }
+        private List<IAsyncPolicy> Policies { get; }
+        private Func<Exception, Task> OnException { get; set; }
+        private Func<object, Task> PutInCache { get; set; }
+        private Func<Task<object>> GetFromCache { get; set; }
 
 
         /// <summary>
@@ -32,19 +32,19 @@ namespace Solyanka.HttpWrapper
         
         
         /// <summary>
-        /// Add timeout policy to request pipeline
+        /// Add timeout policyFactory to request pipeline
         /// </summary>
-        /// <param name="policy"><see cref="IHttpRequestTimeoutPolicy"/></param>
+        /// <param name="policyFactory"><see cref="ITimeoutPolicyFactory"/></param>
         /// <returns><see cref="HttpRequestBuilder"/></returns>
-        public HttpRequestBuilder AddTimeoutPolicy(IHttpRequestTimeoutPolicy policy)
+        public HttpRequestBuilder AddTimeoutPolicy(ITimeoutPolicyFactory policyFactory)
         {
-            Policies.Add(policy.GetTimeoutPolicy());
+            Policies.Add(policyFactory.GetTimeoutPolicy());
 
             return this;
         }
         
         /// <summary>
-        /// Add retry policy to request pipeline
+        /// Add retry policyFactory to request pipeline
         /// </summary>
         /// <param name="policyFactory"><see cref="IRetryPolicyFactory"/></param>
         /// <returns><see cref="HttpRequestBuilder"/></returns>
@@ -56,7 +56,7 @@ namespace Solyanka.HttpWrapper
         }
         
         /// <summary>
-        /// Add cache policy to request pipeline
+        /// Add cache policyFactory to request pipeline
         /// </summary>
         /// <param name="policyFactory"><see cref="ICachePolicyFactory"/></param>
         /// <typeparam name="TResponse">Type of request response</typeparam>
@@ -70,7 +70,7 @@ namespace Solyanka.HttpWrapper
         }
         
         /// <summary>
-        /// Add exception policy to request pipeline
+        /// Add exception policyFactory to request pipeline
         /// </summary>
         /// <param name="policyFactory"><see cref="IExceptionPolicyFactory"/></param>
         /// <returns><see cref="HttpRequestBuilder"/></returns>

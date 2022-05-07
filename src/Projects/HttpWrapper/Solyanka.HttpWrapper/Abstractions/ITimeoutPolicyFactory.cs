@@ -3,9 +3,9 @@
 namespace Solyanka.HttpWrapper.Abstractions
 {
     /// <summary>
-    /// Timeout policy
+    /// Timeout policy factory
     /// </summary>
-    public interface IHttpRequestTimeoutPolicy
+    public interface ITimeoutPolicyFactory
     {
         /// <summary>
         /// Get timeout policy

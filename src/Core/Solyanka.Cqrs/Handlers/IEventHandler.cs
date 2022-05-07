@@ -39,6 +39,7 @@ namespace Solyanka.Cqrs.Handlers
         /// <param name="request">Event that implements <see cref="IEvent"/></param>
         void Handle(TEvent request);
 
+        
         Task IEventHandler<TEvent>.Handle(TEvent request, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();

@@ -14,44 +14,6 @@ namespace Solyanka.HttpWrapper
     public static class HttpWrapper
     {
         /// <summary>
-        /// Send request with policies
-        /// </summary>
-        /// <param name="request">Request</param>
-        /// <param name="retryPolicyFactory"><see cref="IRetryPolicyFactory"/></param>
-        /// <param name="timeoutPolicy"><see cref="IHttpRequestTimeoutPolicy"/></param>
-        /// <param name="exceptionPolicyFactory"><see cref="IExceptionPolicyFactory"/></param>
-        /// <param name="cachePolicyFactory"><see cref="ICachePolicyFactory"/></param>
-        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
-        /// <typeparam name="TResponse">Request response type</typeparam>
-        /// <returns>Response of request</returns>
-        public static async Task<TResponse> SendRequest<TResponse>(
-            Func<CancellationToken, Task<TResponse>> request, IRetryPolicyFactory retryPolicyFactory = null, 
-            IHttpRequestTimeoutPolicy timeoutPolicy = null, IExceptionPolicyFactory exceptionPolicyFactory = null, 
-            ICachePolicyFactory cachePolicyFactory = null, CancellationToken cancellationToken = default)
-        {
-            var builder = new HttpRequestBuilder();
-
-            if (retryPolicyFactory != null)
-            {
-                builder.AddRetryPolicy(retryPolicyFactory);
-            }
-            if (timeoutPolicy != null)
-            {
-                builder.AddTimeoutPolicy(timeoutPolicy);
-            }
-            if (exceptionPolicyFactory != null)
-            {
-                builder.AddExceptionPolicy(exceptionPolicyFactory);
-            }
-            if (cachePolicyFactory != null)
-            {
-                builder.AddCachePolicy<TResponse>(cachePolicyFactory);
-            }
-
-            return await builder.SendRequest(request, cancellationToken);
-        }
-
-        /// <summary>
         /// Send request with default policies (except cache)
         /// </summary>
         /// <param name="request">Request</param>
@@ -62,11 +24,12 @@ namespace Solyanka.HttpWrapper
             Func<CancellationToken, Task<TResponse>> request,
             CancellationToken cancellationToken = default)
         {
-            return await new HttpRequestBuilder()
-                .AddRetryPolicy(DefaultRetryPolicyFactory.Default)
-                .AddTimeoutPolicy(DefaultHttpRequestTimeoutPolicy.Default)
-                .AddExceptionPolicy(DefaultExceptionPolicyFactory.Default)
-                .SendRequest(request, cancellationToken);
+            return await SendCustomRequest(request, 
+                DefaultRetryPolicyFactory.Default,
+                DefaultTimeoutPolicyFactory.Default,
+                DefaultExceptionPolicyFactory.Default,
+                null,
+                cancellationToken);
         }
 
         /// <summary>
@@ -84,12 +47,50 @@ namespace Solyanka.HttpWrapper
             IDistributedCache cache, string key, TimeSpan? timeToLive = null,
             CancellationToken cancellationToken = default)
         {
-            return await new HttpRequestBuilder()
-                .AddRetryPolicy(DefaultRetryPolicyFactory.Default)
-                .AddTimeoutPolicy(DefaultHttpRequestTimeoutPolicy.Default)
-                .AddCachePolicy<TResponse>(new DefaultCachePolicyFactory(cache, key, timeToLive))
-                .AddExceptionPolicy(DefaultExceptionPolicyFactory.Default)
-                .SendRequest(request, cancellationToken);
+            return await SendCustomRequest(request, 
+                DefaultRetryPolicyFactory.Default,
+                DefaultTimeoutPolicyFactory.Default,
+                DefaultExceptionPolicyFactory.Default, 
+                new DefaultCachePolicyFactory(cache, key, timeToLive),
+                cancellationToken);
+        }
+        
+        /// <summary>
+        /// Send request with policies
+        /// </summary>
+        /// <param name="request">Request</param>
+        /// <param name="retryPolicyFactory"><see cref="IRetryPolicyFactory"/></param>
+        /// <param name="timeoutPolicyFactory"><see cref="ITimeoutPolicyFactory"/></param>
+        /// <param name="exceptionPolicyFactory"><see cref="IExceptionPolicyFactory"/></param>
+        /// <param name="cachePolicyFactory"><see cref="ICachePolicyFactory"/></param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <typeparam name="TResponse">Request response type</typeparam>
+        /// <returns>Response of request</returns>
+        public static async Task<TResponse> SendCustomRequest<TResponse>(
+            Func<CancellationToken, Task<TResponse>> request, IRetryPolicyFactory retryPolicyFactory = null, 
+            ITimeoutPolicyFactory timeoutPolicyFactory = null, IExceptionPolicyFactory exceptionPolicyFactory = null, 
+            ICachePolicyFactory cachePolicyFactory = null, CancellationToken cancellationToken = default)
+        {
+            var builder = new HttpRequestBuilder();
+
+            if (retryPolicyFactory != null)
+            {
+                builder.AddRetryPolicy(retryPolicyFactory);
+            }
+            if (timeoutPolicyFactory != null)
+            {
+                builder.AddTimeoutPolicy(timeoutPolicyFactory);
+            }
+            if (exceptionPolicyFactory != null)
+            {
+                builder.AddExceptionPolicy(exceptionPolicyFactory);
+            }
+            if (cachePolicyFactory != null)
+            {
+                builder.AddCachePolicy<TResponse>(cachePolicyFactory);
+            }
+
+            return await builder.SendRequest(request, cancellationToken);
         }
     }
 }

@@ -14,10 +14,12 @@ Solyanka is a simple CQS/CQRS framework, supporting:
   - sending http requests over policies
 
 ### Documentation:
-  - [Handling queries, commands and events](https://github.com/yaroslow/Solyanka/blob/master/docs/1.%20Handling%20queries%2C%20commands%20and%20events.md)
-  - [Building query and command cross-cutting concerns](https://github.com/yaroslow/Solyanka/blob/master/docs/2.%20Building%20query%20and%20command%20cross-cutting%20concerns.md)
-  - [Using IEventStore to handle events](https://github.com/yaroslow/Solyanka/blob/master/docs/3.%20Using%IEventStore%20to%20handle%20events.md)
-  - [Using IServiceBus to push events across the services](https://github.com/yaroslow/Solyanka/blob/master/docs/4.%20Using%20IServiceBus%20to%20push%20events%20across%20the%20services.md)
+  - [1. Handling queries, commands and events](https://github.com/yaroslow/Solyanka/blob/master/docs/1.%20Handling%20queries%2C%20commands%20and%20events.md)
+  - [2. Building query and command cross-cutting concerns](https://github.com/yaroslow/Solyanka/blob/master/docs/2.%20Building%20query%20and%20command%20cross-cutting%20concerns.md)
+  - [3. Using IEventStore to handle events](https://github.com/yaroslow/Solyanka/blob/master/docs/3.%20Using%IEventStore%20to%20handle%20events.md)
+  - [4. Using IServiceBus to push events across the services](https://github.com/yaroslow/Solyanka/blob/master/docs/4.%20Using%20IServiceBus%20to%20push%20events%20across%20the%20services.md)
+  - [5. Validate models, submodels and members](https://github.com/yaroslow/Solyanka/blob/master/docs/5.%20Validate%20models%2C%20submodels%20and%20members.md)
+  - [6. Sending http requests over HttpWrapper](https://github.com/yaroslow/Solyanka/blob/master/docs/6.%20Sending%20http%20requests%20over%20HttpWrapper.md)
 
 ### Packages:
 
@@ -42,7 +44,8 @@ Solyanka is a simple CQS/CQRS framework, supporting:
   | Solyanka.Exceptions.Microsoft.DependencyInjection            | [![Build status](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Microsoft.Solyanka.Exceptions.Microsoft.DependencyInjection.yml/badge.svg)](https://github.com/yaroslow/Solyanka/actions/workflows/Projects.Microsoft.Solyanka.Exceptions.Microsoft.DependencyInjection.yml) [![NuGet](https://img.shields.io/nuget/dt/Solyanka.Exceptions.Microsoft.DependencyInjection)](https://www.nuget.org/packages/Solyanka.Exceptions.Microsoft.DependencyInjection) [![NuGet](https://img.shields.io/nuget/v/Solyanka.Exceptions.Microsoft.DependencyInjection)](https://www.nuget.org/packages/Solyanka.Exceptions.Microsoft.DependencyInjection) |
 
 ### In mind
-- Update documentation
 - Store validation path of model (root->property->property) to understand error place
 - ?May be combine exception handling with validation errors
 - ?Logging
+- ?Examples
+- ?Tests

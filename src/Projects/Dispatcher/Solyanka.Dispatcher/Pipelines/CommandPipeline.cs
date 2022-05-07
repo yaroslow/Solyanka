@@ -8,7 +8,7 @@ using Solyanka.Cqrs.Pipelines;
 using Solyanka.Cqrs.Requests;
 using Solyanka.Utils;
 
-namespace Solyanka.Dispatcher.Cqrs
+namespace Solyanka.Dispatcher.Pipelines
 {
     internal class CommandPipeline<TIn, TOut> : HandlerFactory, ICommandPipeline<TIn, TOut> where TIn : ICommand<TOut>
     {

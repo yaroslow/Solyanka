@@ -50,12 +50,13 @@ namespace Solyanka.Validator
         /// Validate model
         /// </summary>
         /// <param name="model">Model</param>
+        /// <param name="firstErrorStop">Is validating should stop on the first error</param>
         /// <typeparam name="TModel">Model type</typeparam>
         /// <returns><see cref="ValidationResult{TModel}"/></returns>
-        public static ValidationResult<TModel> Validate<TModel>(TModel model)
+        public static ValidationResult<TModel> Validate<TModel>(TModel model, bool firstErrorStop = false)
         {
             var validator = Get<TModel>();
-            return validator?.Validate(model);
+            return validator?.Validate(model, firstErrorStop);
         }
     }
     
@@ -137,8 +138,9 @@ namespace Solyanka.Validator
         /// Validate model
         /// </summary>
         /// <param name="model">Model to validate</param>
+        /// <param name="firstErrorStop">Is validating should stop on the first error</param>
         /// <returns><see cref="ValidationResult{TModel}"/></returns>
-        public ValidationResult<TModel> Validate(TModel model)
+        public ValidationResult<TModel> Validate(TModel model, bool firstErrorStop = false)
         {
             var errors = new List<ValidationError<TModel>>();
             foreach (var (expression, (func, errorMessage)) in Constraints)
@@ -146,6 +148,10 @@ namespace Solyanka.Validator
                 if (!func.Invoke(model))
                 {
                     errors.Add(new ValidationError<TModel>(expression, errorMessage));
+                    if (firstErrorStop)
+                    {
+                        break;
+                    }
                 }
             }
 
