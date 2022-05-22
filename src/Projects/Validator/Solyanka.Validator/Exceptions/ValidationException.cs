@@ -11,7 +11,7 @@ namespace Solyanka.Validator.Exceptions
     public class ValidationException : ControllableException
     {
         /// <inheritdoc />
-        protected ValidationException() {}
+        private ValidationException() {}
         
         /// <inheritdoc />
         public ValidationException(string message) : base(message) {}
@@ -28,8 +28,24 @@ namespace Solyanka.Validator.Exceptions
             Code = code;
             SubCode = subCode;
         }
+
+        /// <inheritdoc />
+        public ValidationException(string message, string source, string condition, Exception innerException) : base(message, innerException)
+        {
+            Source = source;
+            Data["Condition"] = condition;
+            Data["Source"] = source;
+        }
         
         /// <inheritdoc />
-        protected ValidationException(SerializationInfo info, StreamingContext context) : base(info, context) {}
+        public ValidationException(string message, string source, string condition, string code, string subCode, Exception innerException) : 
+            this(message, source, condition, innerException)
+        {
+            Code = code;
+            SubCode = subCode;
+        }
+        
+        /// <inheritdoc />
+        private ValidationException(SerializationInfo info, StreamingContext context) : base(info, context) {}
     }
 }

@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Version>6.0.0</Version>
+        <Version>6.1.0</Version>
         <Description>Mechanism to validate models and their properties</Description>
         <Authors>yaroslow</Authors>
         <Copyright>Copyright yaroslow</Copyright>

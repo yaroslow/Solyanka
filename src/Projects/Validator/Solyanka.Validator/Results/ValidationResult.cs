@@ -36,10 +36,12 @@ namespace Solyanka.Validator.Results
         public void Raise()
         {
             var error = Errors.FirstOrDefault();
-            if(error == null)
+            if (error == null)
+            {
                 return;
+            }
 
-            throw new ValidationException(error.ErrorMessage);
+            throw new ValidationException(error.Message, error.Source, error.Condition, error.Exception);
         }
 
         /// <summary>
@@ -48,10 +50,13 @@ namespace Solyanka.Validator.Results
         /// <exception cref="AggregateException">Aggregated validation exception</exception>
         public void RaiseAggregated()
         {
-            if(Success)
+            if (Success)
+            {
                 return;
+            }
 
-            var exceptions = Errors.Select(error => new ValidationException(error.ErrorMessage));
+            var exceptions = Errors.Select(error =>
+                new ValidationException(error.Message, error.Source, error.Condition, error.Exception));
             throw new AggregateException(exceptions);
         }
     }

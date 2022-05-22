@@ -12,19 +12,46 @@ namespace Solyanka.Validator.Results
         /// <summary>
         /// Validation constraint that caused validation error
         /// </summary>
-        public Expression<Func<TModel, bool>> ValidationConstraint { get; }
+        public Expression<Func<TModel, bool>> ValidationRule { get; }
+        
+        /// <summary>
+        /// Validation conditional rule
+        /// </summary>
+        public Expression<Func<TModel, bool>> ConditionalRule { get; }
 
         /// <summary>
         /// Error message
         /// </summary>
-        public string ErrorMessage { get; }
+        public string Message { get; }
         
+        /// <summary>
+        /// Error source
+        /// </summary>
+        public string Source { get; }
         
+        /// <summary>
+        /// Validation rule condition
+        /// </summary>
+        public string Condition { get; }
+        
+        /// <summary>
+        /// Exception thrown during validation
+        /// </summary>
+        public Exception Exception { get; }
+
+
         /// <summary/>
-        public ValidationError(Expression<Func<TModel, bool>> validationConstraint, string errorMessage)
+        public ValidationError(Expression<Func<TModel, bool>> validationRule,
+            Expression<Func<TModel, bool>> conditionalRule, string message, 
+            Exception exception = null)
         {
-            ValidationConstraint = validationConstraint;
-            ErrorMessage = errorMessage;
+            ValidationRule = validationRule;
+            ConditionalRule = conditionalRule;
+            Message = message;
+            Source = validationRule?.Body.ToString();
+            Condition = conditionalRule?.Body.ToString();
+            
+            Exception = exception;
         }
     }
 }
