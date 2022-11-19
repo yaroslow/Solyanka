@@ -1,5 +1,4 @@
 using System.Reflection;
-using GreenPipes;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Solyanka.ServiceBus.Abstractions;
@@ -26,6 +25,7 @@ public static class ServiceCollectionExtensions
     {
         var configuration = new RabbitMqEndpointSettings();
         rabbitMqEndpointSettings.Invoke(configuration);
+        configuration.Validate();
 
         services.AddServiceBus(assembliesSetup, context =>
             {
@@ -36,10 +36,10 @@ public static class ServiceCollectionExtensions
                         h.Username(configuration.Username);
                         h.Password(configuration.Password);
                     });
-
-                    cfg.ReceiveEndpoint(configuration.ServiceEndpointName, config =>
+                    
+                    cfg.ReceiveEndpoint(configuration.ServiceEndpointName!, config =>
                     {
-                        config.Durable = true;
+                        config.Durable = configuration.Durable;
                         config.PrefetchCount = configuration.PrefetchCount;
                         config.UseMessageRetry(x =>
                             x.Interval(configuration.RetryCount, configuration.RetryInterval));
