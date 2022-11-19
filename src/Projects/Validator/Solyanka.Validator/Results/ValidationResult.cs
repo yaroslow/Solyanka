@@ -3,61 +3,60 @@ using System.Collections.Generic;
 using System.Linq;
 using Solyanka.Validator.Exceptions;
 
-namespace Solyanka.Validator.Results
+namespace Solyanka.Validator.Results;
+
+/// <summary>
+/// Result of validation
+/// </summary>
+/// <typeparam name="TModel">Type of model that was validated</typeparam>
+public class ValidationResult<TModel>
 {
     /// <summary>
-    /// Result of validation
+    /// Validation errors
     /// </summary>
-    /// <typeparam name="TModel">Type of model that was validated</typeparam>
-    public class ValidationResult<TModel>
+    public IEnumerable<ValidationError<TModel>> Errors { get; }
+
+    /// <summary>
+    /// Success validation
+    /// </summary>
+    public bool Success => !Errors.Any();
+
+
+    /// <summary/>
+    public ValidationResult(IEnumerable<ValidationError<TModel>> validationErrors)
     {
-        /// <summary>
-        /// Validation errors
-        /// </summary>
-        public IEnumerable<ValidationError<TModel>> Errors { get; }
-
-        /// <summary>
-        /// Success validation
-        /// </summary>
-        public bool Success => !Errors.Any();
-
-
-        /// <summary/>
-        public ValidationResult(IEnumerable<ValidationError<TModel>> validationErrors)
-        {
-            Errors = validationErrors;
-        }
+        Errors = validationErrors;
+    }
 
         
-        /// <summary>
-        /// Throws the first <see cref="ValidationException"/> if it exists
-        /// </summary>
-        /// <exception cref="ValidationException">First validation exception</exception>
-        public void Raise()
+    /// <summary>
+    /// Throws the first <see cref="ValidationException"/> if it exists
+    /// </summary>
+    /// <exception cref="ValidationException">First validation exception</exception>
+    public void Raise()
+    {
+        var error = Errors.FirstOrDefault();
+        if (error == null)
         {
-            var error = Errors.FirstOrDefault();
-            if (error == null)
-            {
-                return;
-            }
-
-            throw new ValidationException(error.Message, error.Source, error.Condition, error.Exception);
+            return;
         }
 
-        /// <summary>
-        /// Throws <see cref="ValidationAggregateException"/> if there are any error
-        /// </summary>
-        /// <exception cref="AggregateException">Aggregated validation exception</exception>
-        public void RaiseAggregated()
-        {
-            if (Success)
-            {
-                return;
-            }
+        throw new ValidationException(error.Message, error.Source, error.Condition, error.Exception);
+    }
 
-            var exceptions = Errors.Select(error =>
-                new ValidationException(error.Message, error.Source, error.Condition, error.Exception));
-            throw new AggregateException(exceptions);
+    /// <summary>
+    /// Throws <see cref="ValidationAggregateException"/> if there are any error
+    /// </summary>
+    /// <exception cref="AggregateException">Aggregated validation exception</exception>
+    public void RaiseAggregated()
+    {
+        if (Success)
+        {
+            return;
         }
+
+        var exceptions = Errors.Select(error =>
+            new ValidationException(error.Message, error.Source, error.Condition, error.Exception));
+        throw new AggregateException(exceptions);
     }
 }

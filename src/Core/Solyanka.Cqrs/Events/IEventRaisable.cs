@@ -1,19 +1,16 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Solyanka.Cqrs.Requests;
+﻿using Solyanka.Cqrs.Requests;
 
-namespace Solyanka.Cqrs.Events
+namespace Solyanka.Cqrs.Events;
+
+/// <summary>
+/// Container of <see cref="IEvent"/> that can be raised
+/// </summary>
+public interface IEventRaisable
 {
     /// <summary>
-    /// Container of <see cref="IEvent"/> that can be raised
+    /// Raise all <see cref="IEvent"/> in container
     /// </summary>
-    public interface IEventRaisable
-    {
-        /// <summary>
-        /// Raise all <see cref="IEvent"/> in container
-        /// </summary>
-        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
-        /// <returns><see cref="Task"/></returns>
-        Task Raise(CancellationToken cancellationToken = default);
-    }
+    /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+    /// <returns><see cref="Task"/></returns>
+    Task Raise(CancellationToken cancellationToken = default);
 }

@@ -1,26 +1,23 @@
-using System.Threading;
-using System.Threading.Tasks;
 using Solyanka.ServiceBus.Abstractions;
 
-namespace Solyanka.ServiceBus
+namespace Solyanka.ServiceBus;
+
+/// <inheritdoc />
+public class ServiceBus : IServiceBus
 {
-    /// <inheritdoc />
-    public class ServiceBus : IServiceBus
+    private readonly ServiceBusPublisher _publisher;
+
+        
+    /// <summary/>
+    public ServiceBus(ServiceBusPublisher publisher)
     {
-        private readonly ServiceBusPublisher _publisher;
-
-        
-        /// <summary/>
-        public ServiceBus(ServiceBusPublisher publisher)
-        {
-            _publisher = publisher;
-        }
+        _publisher = publisher;
+    }
         
 
-        /// <inheritdoc />
-        public async Task Publish(IIntegrationEvent @event, CancellationToken cancellationToken = default)
-        {
-            await _publisher.Publish(@event, cancellationToken);
-        }
+    /// <inheritdoc />
+    public async Task Publish(IIntegrationEvent @event, CancellationToken cancellationToken = default)
+    {
+        await _publisher.Publish(@event, cancellationToken);
     }
 }

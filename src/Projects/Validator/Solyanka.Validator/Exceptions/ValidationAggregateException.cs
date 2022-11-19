@@ -4,44 +4,43 @@ using System.Linq;
 using System.Text;
 using Solyanka.Exceptions.Exceptions;
 
-namespace Solyanka.Validator.Exceptions
+namespace Solyanka.Validator.Exceptions;
+
+/// <summary>
+/// Aggregated exception of validation
+/// </summary>
+[Serializable]
+public class ValidationAggregateException : ControllableException
 {
     /// <summary>
-    /// Aggregated exception of validation
+    /// List of validation exception
     /// </summary>
-    [Serializable]
-    public class ValidationAggregateException : ControllableException
+    public List<ValidationException> ValidationExceptions { get; }
+
+
+    /// <inheritdoc />
+    protected ValidationAggregateException()
     {
-        /// <summary>
-        /// List of validation exception
-        /// </summary>
-        public List<ValidationException> ValidationExceptions { get; }
+        ValidationExceptions = new List<ValidationException>();
+    }
+
+    /// <inheritdoc />
+    public ValidationAggregateException(string message, IEnumerable<ValidationException> validationExceptions) : base(message)
+    {
+        ValidationExceptions = validationExceptions.ToList();
+    }
 
 
-        /// <inheritdoc />
-        protected ValidationAggregateException()
+    /// <inheritdoc />
+    public override string ToString()
+    {
+        var stringBuilder = new StringBuilder(base.ToString());
+        stringBuilder.Append(Environment.NewLine);
+        foreach (var validationException in ValidationExceptions)
         {
-            ValidationExceptions = new List<ValidationException>();
+            stringBuilder.Append(validationException);
         }
 
-        /// <inheritdoc />
-        public ValidationAggregateException(string message, IEnumerable<ValidationException> validationExceptions) : base(message)
-        {
-            ValidationExceptions = validationExceptions.ToList();
-        }
-
-
-        /// <inheritdoc />
-        public override string ToString()
-        {
-            var stringBuilder = new StringBuilder(base.ToString());
-            stringBuilder.Append(Environment.NewLine);
-            foreach (var validationException in ValidationExceptions)
-            {
-                stringBuilder.Append(validationException);
-            }
-
-            return stringBuilder.ToString();
-        }
+        return stringBuilder.ToString();
     }
 }

@@ -1,22 +1,19 @@
-﻿using System;
-using System.Runtime.Serialization;
-using Solyanka.Exceptions.Exceptions;
+﻿using Solyanka.Exceptions.Exceptions;
 
-namespace Solyanka.Ddd.Exceptions
+namespace Solyanka.Ddd.Exceptions;
+
+/// <summary>
+/// Exception in domain logic
+/// </summary>
+[Serializable]
+public class DomainException : LogicalException
 {
-    /// <summary>
-    /// Exception in domain logic
-    /// </summary>
-    [Serializable]
-    public class DomainException : LogicalException
-    {
-        /// <inheritdoc />
-        protected DomainException() {}
+    /// <inheritdoc />
+    protected DomainException() {}
 
-        /// <inheritdoc />
-        public DomainException(string message, string code = null, string subCode = null) : base(message, code, subCode) {}
+    /// <inheritdoc />
+    public DomainException(string? message, string? code = null, string? subCode = null) : base(message, code, subCode) {}
 
-        /// <inheritdoc />
-        public DomainException(string message, Exception inner) : base(message, inner) {}
-    }
+    /// <inheritdoc />
+    public DomainException(string? message, Exception? inner) : base(message, inner) {}
 }

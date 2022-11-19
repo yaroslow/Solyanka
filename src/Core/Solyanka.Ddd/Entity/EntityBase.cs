@@ -1,86 +1,77 @@
-﻿using System;
-using Solyanka.Ddd.Interfaces;
+﻿namespace Solyanka.Ddd.Entity;
 
-namespace Solyanka.Ddd.Entity
+/// <summary>
+/// Entity
+/// </summary>
+/// <typeparam name="TId"><see cref="Id{TId}"/></typeparam>
+/// <typeparam name="TIdType">Identificator type</typeparam>
+public abstract class EntityBase<TId, TIdType> : IEquatable<EntityBase<TId, TIdType>>
+    where TId: Id<TIdType>
+    where TIdType : IEquatable<TIdType>, IComparable<TIdType>, IComparable
 {
     /// <summary>
-    /// Entity
+    /// Identificator
     /// </summary>
-    /// <typeparam name="TId">Identificator type</typeparam>
-    public abstract class EntityBase<TId> : IHasId<TId> where TId: IEquatable<TId>
+    public TId? Id { get; }
+        
+
+    /// <summary>
+    /// Workaround constructor of <see cref="EntityBase{TId, TIdType}"/>
+    /// </summary>
+    protected EntityBase() {}
+
+    /// <summary>
+    /// Constructor of <see cref="EntityBase{TId, TIdType}"/>
+    /// </summary>
+    /// <param name="id">Identificator</param>
+    public EntityBase(TId id)
     {
-        /// <summary>
-        /// Protected default constructor
-        /// </summary>
-        protected EntityBase() {}
-
-        /// <summary>
-        /// Constructor of <see cref="EntityBase{TId}"/>
-        /// </summary>
-        /// <param name="id">Identificator</param>
-        public EntityBase(TId id)
-        {
-            Id = id;
-        }
+        Id = id;
+    }
 
 
-        object IHasId.Id => Id;
+    /// <inheritdoc />
+    public bool Equals(EntityBase<TId, TIdType>? other)
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return EqualityComparer<TId>.Default.Equals(Id, other.Id);
+    }
 
-        /// <inheritdoc />
-        public TId Id { get; protected set; }
+    /// <inheritdoc />
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != GetType()) return false;
+        return Equals((EntityBase<TId, TIdType>) obj);
+    }
 
-        /// <inheritdoc />
-        public override bool Equals(object obj)
-        {
-            var other = obj as EntityBase<TId>;
+    /// <inheritdoc />
+    public override int GetHashCode()
+    {
+        return EqualityComparer<TId>.Default.GetHashCode(Id!);
+    }
 
-            if (other is null)
-                return false;
+    /// <summary>
+    /// Equality operator
+    /// </summary>
+    /// <param name="left">Left operand</param>
+    /// <param name="right">Right operand</param>
+    /// <returns>Equality</returns>
+    public static bool operator ==(EntityBase<TId, TIdType> left, EntityBase<TId, TIdType> right)
+    {
+        return Equals(left, right);
+    }
 
-            if (ReferenceEquals(this, other))
-                return true;
-
-            if (GetType() != other.GetType())
-                return false;
-
-            if (Id?.Equals(default) != false || other.Id?.Equals(default) != false)
-                return false;
-
-            return Id.Equals(other.Id);
-        }
-
-        /// <summary>
-        /// Operator ==
-        /// </summary>
-        /// <param name="left">Left operand</param>
-        /// <param name="right">Right operand</param>
-        /// <returns>Left == right</returns>
-        public static bool operator ==(EntityBase<TId> left, EntityBase<TId> right)
-        {
-            if (left is null && right is null)
-                return true;
-
-            if (left is null || right is null)
-                return false;
-
-            return left.Equals(right);
-        }
-
-        /// <summary>
-        /// Operator !=
-        /// </summary>
-        /// <param name="a">Left operand</param>
-        /// <param name="b">Right operand</param>
-        /// <returns>Left != right</returns>
-        public static bool operator !=(EntityBase<TId> a, EntityBase<TId> b)
-        {
-            return !(a == b);
-        }
-
-        /// <inheritdoc />
-        public override int GetHashCode()
-        {
-            return (GetType().ToString() + Id).GetHashCode();
-        }
+    /// <summary>
+    /// Inequality operator
+    /// </summary>
+    /// <param name="left">Left operand</param>
+    /// <param name="right">Right operand</param>
+    /// <returns>Inequality</returns>
+    public static bool operator !=(EntityBase<TId, TIdType> left, EntityBase<TId, TIdType> right)
+    {
+        return !Equals(left, right);
     }
 }

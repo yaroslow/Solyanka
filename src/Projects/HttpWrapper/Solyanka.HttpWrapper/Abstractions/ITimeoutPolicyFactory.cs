@@ -1,16 +1,15 @@
 ﻿using Polly.Timeout;
 
-namespace Solyanka.HttpWrapper.Abstractions
+namespace Solyanka.HttpWrapper.Abstractions;
+
+/// <summary>
+/// Timeout policy factory
+/// </summary>
+public interface ITimeoutPolicyFactory
 {
     /// <summary>
-    /// Timeout policy factory
+    /// Get timeout policy
     /// </summary>
-    public interface ITimeoutPolicyFactory
-    {
-        /// <summary>
-        /// Get timeout policy
-        /// </summary>
-        /// <returns><see cref="AsyncTimeoutPolicy"/></returns>
-        public AsyncTimeoutPolicy GetTimeoutPolicy();
-    }
+    /// <returns><see cref="AsyncTimeoutPolicy"/></returns>
+    public AsyncTimeoutPolicy GetTimeoutPolicy();
 }
